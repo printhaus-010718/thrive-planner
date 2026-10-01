@@ -1,0 +1,1390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#FFF8F1">
+<title>Thrive Through Menopause</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FFF8F1; --surface:#FFFDFA; --ink:#3B2A30; --muted:#6F5A63; --line:#EBDCD6;
+  --fig:#A23A63; --fig-ink:#FFFFFF; --btn:#F6B9CD; --btn-ink:#3B1626;
+  --sage:#EE93B2; --sage-soft:#FDE6EE; --sun:#F5883A; --sun-ink:#3A1A02;
+  --tint:#FCE9EF; --danger:#B23A48; --logo-bg:transparent;
+  --s0:#F5ECE4; --s1:#FBDCE6; --s2:#F7BFD1; --s3:#EE93B2; --s4:#BC4373; --s5:#8F2F55;
+  --k3:#3B2A30; --k4:#FFFFFF; --k5:#FFFFFF;
+  --display:"Bricolage Grotesque","Trebuchet MS",system-ui,sans-serif;
+  --body:"Atkinson Hyperlegible",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#241A1D; --surface:#2F2226; --ink:#FBEFF2; --muted:#CDB6BE; --line:#48353C;
+    --fig:#F4A6C0; --fig-ink:#3B1626; --btn:#F6B9CD; --btn-ink:#3B1626;
+    --sage:#E9829F; --sage-soft:#3E2A31; --sun:#F7A25A; --sun-ink:#2A1400;
+    --tint:#3A2830; --danger:#F08A98; --logo-bg:#FFF8F1;
+    --s0:#38292F; --s1:#5A3444; --s2:#84455D; --s3:#D07A9C; --s4:#E38BAA; --s5:#F9C6D7;
+    --k3:#2A1418; --k4:#2A1418; --k5:#2A1418;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#241A1D; --surface:#2F2226; --ink:#FBEFF2; --muted:#CDB6BE; --line:#48353C;
+  --fig:#F4A6C0; --fig-ink:#3B1626; --btn:#F6B9CD; --btn-ink:#3B1626;
+  --sage:#E9829F; --sage-soft:#3E2A31; --sun:#F7A25A; --sun-ink:#2A1400;
+  --tint:#3A2830; --danger:#F08A98; --logo-bg:#FFF8F1;
+  --s0:#38292F; --s1:#5A3444; --s2:#84455D; --s3:#D07A9C; --s4:#E38BAA; --s5:#F9C6D7;
+  --k3:#2A1418; --k4:#2A1418; --k5:#2A1418;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px);-webkit-text-size-adjust:100%}
+html.big{font-size:118%}
+*,*::before,*::after{box-sizing:inherit}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:1rem;line-height:1.5;min-height:100%}
+h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.15;margin:0;letter-spacing:-.01em}
+h1{font-size:1.65rem} h2{font-size:1.3rem} h3{font-size:1.05rem}
+p{margin:0}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:3px solid var(--sun);outline-offset:2px;border-radius:8px}
+.wrap{max-width:560px;margin:0 auto;padding:1.1rem 1.1rem 7.5rem}
+.muted{color:var(--muted)} .small{font-size:.875rem}
+.stack>*+*{margin-top:1rem} .stack-lg>*+*{margin-top:1.6rem} .stack-sm>*+*{margin-top:.5rem}
+.row{display:flex;align-items:center;gap:.75rem} .between{justify-content:space-between}
+.grow{flex:1;min-width:0}
+hr{border:0;border-top:1px solid var(--line);margin:0}
+.hidden{display:none!important}
+
+/* header */
+.top h1{margin-bottom:.15rem}
+.top .sub{color:var(--muted)}
+
+/* brand */
+.brand-row{display:flex;align-items:center;gap:.9rem}
+.brand-row>div{min-width:0}
+.logo-chip{flex:none;width:104px;background:var(--logo-bg);border-radius:14px;padding:.15rem .25rem;line-height:0}
+.logo-chip img,.logo-lg img{width:100%;height:auto;display:block}
+.logo-lg{width:min(64vw,250px);margin:0 auto;background:var(--logo-bg);border-radius:20px;padding:.5rem .7rem;line-height:0}
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:3rem;padding:.65rem 1.3rem;border-radius:999px;border:2px solid var(--fig);background:transparent;color:var(--fig);font-weight:700;text-decoration:none}
+.btn.primary{background:var(--btn);border-color:var(--btn);color:var(--btn-ink)}
+.btn.block{display:flex;width:100%}
+.btn.sun{background:var(--sun);border-color:var(--sun);color:var(--sun-ink)}
+.btn.quiet{border-color:var(--line);color:var(--ink);font-weight:400}
+.btn.danger{border-color:var(--danger);color:var(--danger)}
+.btn.small{min-height:2.5rem;padding:.4rem 1rem;font-size:.9rem}
+.linkbtn{background:none;border:0;padding:.4rem 0;color:var(--fig);font-weight:700;text-decoration:underline;text-underline-offset:3px}
+
+/* ring */
+.hero{display:grid;place-items:center;padding:.5rem 0 0}
+.ring{width:min(72vw,270px);height:auto}
+.ring text{font-family:var(--display)}
+.legend{display:grid;grid-template-columns:1fr 1fr;gap:.5rem .9rem;margin-top:1rem;width:100%}
+.legend div{display:flex;align-items:center;gap:.5rem;font-size:.9rem}
+.legend i{width:.8rem;height:.8rem;border-radius:50%;background:var(--line);flex:none}
+.legend i.on{background:var(--sun)} .legend i.part{background:var(--sage)}
+
+/* sections */
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:1.1rem}
+.panel.tint{background:var(--tint);border-color:transparent}
+.sect-title{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:.6rem}
+.list{list-style:none;margin:0;padding:0}
+.list>li{padding:.85rem 0;border-top:1px solid var(--line)}
+.list>li:first-child{border-top:0}
+.item-btn{display:flex;width:100%;align-items:center;justify-content:space-between;gap:.75rem;text-align:left;background:none;border:0;padding:0;min-height:2.75rem}
+.chev{width:1.1rem;height:1.1rem;flex:none;color:var(--muted)}
+.tag{display:inline-block;padding:.1rem .6rem;border-radius:999px;background:var(--sage-soft);color:var(--fig);font-size:.8rem;font-weight:700}
+.tag.warn{background:var(--tint);color:var(--fig)}
+
+/* tab bar */
+.tabbar{position:fixed;left:0;right:0;bottom:0;z-index:20;background:var(--surface);border-top:1px solid var(--line);padding:.35rem .5rem calc(.35rem + env(safe-area-inset-bottom,0px))}
+.tabbar nav{max-width:560px;margin:0 auto;display:grid;grid-template-columns:repeat(5,1fr);gap:.15rem}
+.tab{display:flex;flex-direction:column;align-items:center;gap:.15rem;min-height:3.4rem;justify-content:center;background:none;border:0;border-radius:14px;color:var(--muted);font-size:.72rem;font-weight:700}
+.tab svg{width:1.55rem;height:1.55rem}
+.tab[aria-current="page"]{color:var(--fig);background:var(--tint)}
+.tab.mid{color:var(--btn-ink);background:var(--btn)}
+.tab.mid[aria-current="page"]{outline:3px solid var(--sun);outline-offset:-3px}
+
+/* wizard / controls */
+.steps{display:flex;gap:.35rem}
+.steps i{height:.35rem;flex:1;border-radius:9px;background:var(--line)}
+.steps i.done{background:var(--sage)} .steps i.now{background:var(--fig)}
+.q{padding:1rem 0;border-top:1px solid var(--line)}
+.q:first-of-type{border-top:0}
+.q label,.q .lab{display:block;font-weight:700;font-size:1.05rem}
+.q .help{color:var(--muted);font-size:.875rem;margin:.1rem 0 .6rem}
+.chips{display:grid;grid-template-columns:repeat(5,1fr);gap:.4rem}
+.chips.six{grid-template-columns:repeat(6,1fr)}
+.chip{min-height:3.2rem;border-radius:14px;border:2px solid var(--line);background:var(--surface);display:flex;flex-direction:column;align-items:center;justify-content:center;font-weight:700;font-size:1.1rem;padding:.2rem 0}
+.chip small{font-size:.66rem;font-weight:400;color:var(--muted);line-height:1}
+.chip[aria-pressed="true"]{border-color:var(--fig);background:var(--tint);color:var(--fig)}
+.chip .em{font-size:1.45rem;line-height:1.1}
+.ends{display:flex;justify-content:space-between;font-size:.75rem;color:var(--muted);margin-top:.3rem}
+.stepper{display:flex;align-items:center;gap:.6rem}
+.stepper button{width:3.2rem;height:3.2rem;border-radius:50%;border:2px solid var(--fig);background:transparent;color:var(--fig);font-size:1.6rem;line-height:1;font-weight:700;flex:none}
+.stepper input{width:100%;min-width:0;text-align:center;font-family:var(--display);font-size:1.7rem;font-weight:700;border:2px solid var(--line);border-radius:14px;min-height:3.2rem;background:var(--surface)}
+.unit{color:var(--muted);font-size:.9rem;min-width:3.2rem}
+.seg{display:grid;grid-template-columns:1fr 1fr;gap:.5rem}
+.seg button{min-height:3.2rem;border-radius:14px;border:2px solid var(--line);background:var(--surface);font-weight:700}
+.seg button[aria-pressed="true"]{border-color:var(--fig);background:var(--tint);color:var(--fig)}
+.quick{display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.5rem}
+.quick button{min-height:2.4rem;padding:0 .9rem;border-radius:999px;border:1px solid var(--line);background:var(--surface);font-size:.9rem}
+.field{display:block}
+.field>span{display:block;font-weight:700;margin-bottom:.25rem}
+.inp,.field input:not([type=checkbox]),.field select,.field textarea,textarea.inp,select.inp{width:100%;min-height:3rem;border:2px solid var(--line);border-radius:12px;background:var(--surface);padding:.55rem .8rem}
+textarea{resize:vertical;min-height:6rem}
+
+/* progress */
+.metric{display:grid;grid-template-columns:1fr auto;gap:.1rem .8rem;padding:.8rem 0;border-top:1px solid var(--line)}
+.metric:first-child{border-top:0}
+.metric b{font-family:var(--display);font-size:1.35rem}
+.trend{font-size:.85rem;color:var(--muted);grid-column:1/-1}
+.dot{display:inline-block;width:.6rem;height:.6rem;border-radius:50%;margin-right:.35rem;background:var(--line)}
+.dot.good{background:var(--sage)} .dot.watch{background:var(--sun)}
+.chart{width:100%;height:auto;display:block}
+.chart text{fill:var(--muted);font-size:10px;font-family:var(--body)}
+.cal{display:grid;grid-template-columns:repeat(7,1fr);gap:.3rem}
+.cal button{aspect-ratio:1;border-radius:10px;border:0;font-size:.8rem;font-weight:700;color:var(--ink);background:var(--s0)}
+.cal button.c1{background:var(--s1)} .cal button.c2{background:var(--s2)} .cal button.c3{background:var(--s3);color:var(--k3)}
+.cal button.c4{background:var(--s4);color:var(--k4)} .cal button.c5{background:var(--s5);color:var(--k5)}
+.cal button.today{outline:3px solid var(--sun);outline-offset:1px}
+.cal .dh{font-size:.72rem;text-align:center;color:var(--muted)}
+.scale{display:flex;align-items:center;gap:.4rem;font-size:.75rem;color:var(--muted);margin-top:.5rem}
+.scale i{width:1.2rem;height:.8rem;border-radius:3px;display:block}
+
+/* sheet + toast */
+.sheet-bg{position:fixed;inset:0;z-index:50;background:rgba(20,10,30,.55);display:flex;align-items:flex-end;justify-content:center}
+.sheet{background:var(--bg);width:100%;max-width:560px;max-height:88vh;overflow:auto;border-radius:22px 22px 0 0;padding:1.2rem 1.1rem calc(1.4rem + env(safe-area-inset-bottom,0px))}
+.sheet .grab{width:2.6rem;height:.3rem;background:var(--line);border-radius:9px;margin:-.4rem auto 1rem}
+.toast{position:fixed;left:50%;bottom:calc(6rem + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:.7rem 1.2rem;border-radius:999px;z-index:60;font-weight:700;max-width:90vw}
+.overlay{position:fixed;inset:0;z-index:70;background:var(--bg);overflow:auto;padding-top:env(safe-area-inset-top,0px)}
+.overlay .wrap{padding-bottom:3rem}
+.big-num{font-family:var(--display);font-size:2.4rem;font-weight:700;line-height:1}
+.pill-row{display:flex;gap:.4rem;flex-wrap:wrap}
+.pill-row button{min-height:2.6rem;padding:0 1rem;border-radius:999px;border:2px solid var(--line);background:var(--surface);font-weight:700}
+.pill-row button[aria-pressed="true"]{border-color:var(--fig);background:var(--tint);color:var(--fig)}
+.check{display:flex;align-items:center;gap:.75rem;min-height:2.75rem}
+.check input{width:1.6rem;height:1.6rem;accent-color:var(--fig);flex:none}
+details.help-box{border:1px solid var(--line);border-radius:14px;padding:.6rem .9rem;background:var(--surface)}
+details.help-box summary{cursor:pointer;font-weight:700;min-height:2rem;display:flex;align-items:center}
+.day-card{border-top:1px solid var(--line);padding:1rem 0}
+.day-card:first-child{border-top:0}
+@media (prefers-reduced-motion: no-preference){
+  .sheet{animation:up .22s ease-out}
+  @keyframes up{from{transform:translateY(24px);opacity:.4}to{transform:none;opacity:1}}
+}
+
+/* workbook feature screens */
+.mini-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.65rem}
+.stat-card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:.8rem}
+.stat-card b{font-family:var(--display);font-size:1.25rem}
+.tracker-row{display:grid;grid-template-columns:minmax(0,1fr) 7rem;align-items:center;gap:.7rem;padding:.7rem 0;border-top:1px solid var(--line)}
+.tracker-row:first-child{border-top:0}
+.tracker-row select{width:100%;min-height:2.7rem;border:2px solid var(--line);border-radius:12px;background:var(--surface);padding:.35rem .5rem}
+.scorebox{display:inline-flex;align-items:center;justify-content:center;min-width:2.2rem;height:2.2rem;padding:0 .55rem;border-radius:999px;background:var(--tint);color:var(--fig);font-weight:700}
+.progressbar{height:.7rem;border-radius:999px;background:var(--line);overflow:hidden}
+.progressbar>i{display:block;height:100%;background:var(--fig);border-radius:inherit}
+.module-card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:1rem}
+.module-card+.module-card{margin-top:.8rem}
+.lesson-row{padding:.8rem 0;border-top:1px solid var(--line)}
+.lesson-row:first-of-type{border-top:0}
+.meal-card{border:1px solid var(--line);border-radius:16px;padding:.9rem;background:var(--surface)}
+.meal-card+.meal-card{margin-top:.7rem}
+.meal-grid{display:grid;grid-template-columns:1fr;gap:.4rem;margin-top:.55rem}
+.meal-grid div{padding:.45rem .55rem;border-radius:10px;background:var(--tint)}
+.meal-grid b{display:block;font-size:.76rem;text-transform:uppercase;letter-spacing:.03em;color:var(--muted);margin-bottom:.08rem}
+.week-day{border:1px solid var(--line);border-radius:14px;padding:.8rem;background:var(--surface)}
+.week-day+.week-day{margin-top:.6rem}
+.nav-cards{display:grid;grid-template-columns:1fr 1fr;gap:.65rem}
+.nav-card{border:1px solid var(--line);border-radius:16px;background:var(--surface);padding:.85rem;text-align:left;min-height:6.5rem}
+.nav-card b{display:block;margin-bottom:.2rem;color:var(--fig)}
+.soft{background:var(--tint);border-radius:12px;padding:.7rem}
+@media (max-width:390px){.mini-grid,.nav-cards{grid-template-columns:1fr}.tracker-row{grid-template-columns:minmax(0,1fr) 6.4rem}}
+
+@media print{
+  .tabbar,.no-print,.toast{display:none!important}
+  body{background:#fff;color:#000}
+  .wrap{padding-bottom:1rem;max-width:none}
+}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<div id="layer"></div>
+
+<script>
+(function(){
+"use strict";
+
+/* ---------- storage (private to this device/browser) ---------- */
+const KEY = "thrive.planner.v1";
+let mem = null;
+const store = {
+  get(){ try{ const t = localStorage.getItem(KEY); return t ? JSON.parse(t) : null; }catch(e){ return mem; } },
+  set(o){ try{ localStorage.setItem(KEY, JSON.stringify(o)); }catch(e){ mem = o; } }
+};
+
+/* ---------- date helpers ---------- */
+const pad = n => String(n).padStart(2,"0");
+const ds = d => d.getFullYear()+"-"+pad(d.getMonth()+1)+"-"+pad(d.getDate());
+const pd = s => { const [y,m,d] = s.split("-").map(Number); return new Date(y,m-1,d); };
+const addDays = (s,n) => { const d = pd(s); d.setDate(d.getDate()+n); return ds(d); };
+const diffDays = (a,b) => Math.round((pd(b)-pd(a))/86400000);
+const today = () => ds(new Date());
+const long = s => pd(s).toLocaleDateString(undefined,{weekday:"long",day:"numeric",month:"long"});
+const short = s => pd(s).toLocaleDateString(undefined,{day:"numeric",month:"short"});
+const wkday = s => (pd(s).getDay()+6)%7; // Monday = 0
+const DAYS = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
+const esc = t => String(t==null?"":t).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const num = v => typeof v==="number" && !isNaN(v) ? v : 0;
+const has = v => v!==undefined && v!==null && v!=="";
+
+/* ---------- state ---------- */
+const DEF = () => ({
+  v:2, setup:false,
+  settings:{name:"",programme:"Thrive Essentials",start:today(),theme:"auto",big:false,
+    targets:{sleep:7.5,water:8,protein:90,move:30,strength:3}},
+  entries:{}, symptoms:{}, habits:{}, habitNames:[], journey:{ratings:{},intentions:{}}, weeklyPlans:{},
+  planMove:{}, planMeals:{}, planDone:{}, shopping:[], goals:[], reviews:{}, course:{}, mealGuide:{}, supps:[], appts:[], draft:null,
+  lastSave:null, savedCount:0
+});
+let S = Object.assign(DEF(), store.get()||{});
+S.settings = Object.assign(DEF().settings, S.settings||{});
+S.settings.targets = Object.assign(DEF().settings.targets, S.settings.targets||{});
+S.symptoms = S.symptoms||{}; S.habits=S.habits||{}; S.weeklyPlans=S.weeklyPlans||{}; S.course=S.course||{}; S.mealGuide=S.mealGuide||{};
+S.journey=Object.assign({ratings:{},intentions:{}},S.journey||{}); S.journey.ratings=S.journey.ratings||{}; S.journey.intentions=S.journey.intentions||{};
+const save = () => store.set(S);
+
+let route = {tab:"today", sub:null};
+let W = null;          // check-in wizard state
+let range = 7;         // progress range
+let planTab = "week";
+let symptomDate=today(), habitDate=today(), reflectionWeek=null;
+let pending = null;   // an Excel file waiting to be confirmed
+
+/* ---------- metrics ---------- */
+const T = () => S.settings.targets;
+function habitsMet(e){
+  if(!e) return null;
+  const t=T(); let n=0;
+  if(num(e.sleep)>=t.sleep) n++;
+  if(num(e.water)>=t.water) n++;
+  if(num(e.protein)>=t.protein) n++;
+  if(num(e.move)>=t.move) n++;
+  if(e.supps==="Yes") n++;
+  return n;
+}
+function symptomLoad(e){
+  if(!e) return null;
+  return num(e.fog)+num(e.joint)+num(e.anxiety)+Math.min(num(e.flushes),5);
+}
+function habitProgress(e){
+  const t=T(); const g=(v,tg)=>tg>0?Math.min(1,num(v)/tg):0;
+  if(!e) return [0,0,0,0,0];
+  return [g(e.sleep,t.sleep),g(e.water,t.water),g(e.protein,t.protein),g(e.move,t.move),e.supps==="Yes"?1:0];
+}
+function streak(){
+  let d = today(); if(!S.entries[d]) d = addDays(d,-1);
+  let n=0; while(S.entries[d]){ n++; d = addDays(d,-1); }
+  return n;
+}
+function weekNo(dateStr){ return Math.floor(diffDays(S.settings.start,dateStr)/7)+1; }
+function avg(list){ const a=list.filter(v=>typeof v==="number"); return a.length? a.reduce((x,y)=>x+y,0)/a.length : null; }
+const f1 = v => v==null ? "–" : (Math.round(v*10)/10).toString();
+function datesBack(n, endStr){ const end = endStr||today(); const a=[]; for(let i=n-1;i>=0;i--) a.push(addDays(end,-i)); return a; }
+function series(dates, fn){ return dates.map(d=>{ const e=S.entries[d]; return e? fn(e) : null; }); }
+function greeting(){ const h=new Date().getHours(); return h<12?"Good morning":h<18?"Good afternoon":"Good evening"; }
+
+/* ---------- gentle guidance ---------- */
+const TIPS = [
+  "Going to bed and getting up at similar times each day can help your body settle into a steadier sleep rhythm.",
+  "Strength training two or three times a week helps you keep muscle and bone strength as hormones change.",
+  "Try to include some protein at each meal. It helps keep you full and supports your muscles.",
+  "A cooler bedroom and lighter layers on the bed help some women with night sweats.",
+  "Use the notes box to jot down what happened before a hot flush. Over a few weeks you may spot your own triggers.",
+  "Three slow breaths, in for four and out for six, can take the edge off a tense moment.",
+  "A short walk outside, especially in the morning, is good for mood, energy and sleep.",
+  "Sipping water through the day is easier than catching up in the evening.",
+  "Small wins count. Meeting two habits today is a better day than meeting none.",
+  "Bring your Progress summary to your next appointment. Specific numbers make the conversation easier.",
+  "Screens and bright light late at night can make it harder to fall asleep. A wind-down routine helps.",
+  "Gentle stretching or yoga counts as movement, especially on lower-energy days.",
+  "If a symptom is new, severe or worrying, please speak with your GP or health practitioner."
+];
+const tipOfDay = () => TIPS[(diffDays("2026-01-01",today())%TIPS.length+TIPS.length)%TIPS.length];
+
+const LOGO="data:image/png;base64,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";
+const logoImg=(c)=>`<div class="${c}"><img src="${LOGO}" alt="Be Your Best, Kirsten the Naturopath" width="520" height="399"></div>`;
+
+/* ---------- icons ---------- */
+const IC = {
+  today:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>',
+  check:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>',
+  prog:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg>',
+  plan:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 11h18"/></svg>',
+  more:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="5" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="19" cy="12" r="1.6"/></svg>',
+  chev:'<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>',
+  back:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg>'
+};
+
+/* ---------- small UI builders ---------- */
+function stepper(f, min, max, step, unit, val, quick){
+  return `<div class="stepper">
+    <button type="button" data-a="step" data-f="${f}" data-d="-1" data-min="${min}" data-max="${max}" data-step="${step}" data-start="${quick&&quick.start||min}" aria-label="Less">−</button>
+    <input type="number" inputmode="decimal" data-in="${f}" data-min="${min}" data-max="${max}" value="${has(val)?val:""}" placeholder="–" aria-label="${esc(f)}">
+    <button type="button" data-a="step" data-f="${f}" data-d="1" data-min="${min}" data-max="${max}" data-step="${step}" data-start="${quick&&quick.start||min}" aria-label="More">+</button>
+    <span class="unit">${unit||""}</span></div>`;
+}
+function chips(f, opts, val, cls){
+  return `<div class="chips ${cls||""}" role="group">${opts.map(o=>
+    `<button type="button" class="chip" data-a="pick" data-f="${f}" data-v="${o.v}" aria-pressed="${val===o.v}" aria-label="${esc(o.l||o.v)}">${o.em?`<span class="em">${o.em}</span>`:o.v}${o.s?`<small>${o.s}</small>`:""}</button>`).join("")}</div>`;
+}
+function yn(f,val){
+  return `<div class="seg" role="group">${["Yes","No"].map(v=>`<button type="button" data-a="pick" data-f="${f}" data-v="${v}" aria-pressed="${val===v}">${v}</button>`).join("")}</div>`;
+}
+const FACES = [{v:1,em:"😩",l:"1, very low"},{v:2,em:"😕",l:"2, low"},{v:3,em:"😐",l:"3, okay"},{v:4,em:"🙂",l:"4, good"},{v:5,em:"😄",l:"5, great"}];
+const STRESS15=[1,2,3,4,5].map(v=>({v,l:v===1?"1, very calm":v===5?"5, very stressed":String(v)}));
+const SCALE05 = [0,1,2,3,4,5].map(v=>({v,l:String(v)}));
+function toast(msg){
+  const t=document.createElement("div"); t.className="toast"; t.setAttribute("role","status"); t.textContent=msg;
+  document.body.appendChild(t); setTimeout(()=>t.remove(),2400);
+}
+function sheet(html){
+  const L=document.getElementById("layer");
+  L.innerHTML=`<div class="sheet-bg" data-a="closeSheetBg"><div class="sheet" role="dialog" aria-modal="true"><div class="grab"></div>${html}</div></div>`;
+  const first=L.querySelector("input,textarea,select,button.btn"); if(first && !/Mobi|Android/.test(navigator.userAgent)) first.focus();
+}
+function closeSheet(){ document.getElementById("layer").innerHTML=""; }
+
+/* ---------- hero ring ---------- */
+function arc(cx,cy,r,a0,a1){
+  const p=a=>[cx+r*Math.cos(a*Math.PI/180), cy+r*Math.sin(a*Math.PI/180)];
+  const [x0,y0]=p(a0),[x1,y1]=p(a1);
+  return `M${x0.toFixed(2)} ${y0.toFixed(2)} A${r} ${r} 0 ${(a1-a0)>180?1:0} 1 ${x1.toFixed(2)} ${y1.toFixed(2)}`;
+}
+function ring(e){
+  const prog=habitProgress(e), met=habitsMet(e);
+  const cx=110,cy=110,r=88,span=72,gap=8;
+  let paths="";
+  for(let i=0;i<5;i++){
+    const a0=-90+i*span+gap/2, a1=-90+(i+1)*span-gap/2;
+    paths+=`<path d="${arc(cx,cy,r,a0,a1)}" fill="none" stroke="var(--line)" stroke-width="16" stroke-linecap="round"/>`;
+    const p=prog[i];
+    if(p>0.02){
+      const end=a0+(a1-a0)*p;
+      paths+=`<path d="${arc(cx,cy,r,a0,Math.max(end,a0+1))}" fill="none" stroke="${p>=1?"var(--sun)":"var(--sage)"}" stroke-width="16" stroke-linecap="round"/>`;
+    }
+  }
+  const label = met==null ? "–" : met+"/5";
+  return `<svg class="ring" viewBox="0 0 220 220" role="img" aria-label="${met==null?"No check-in yet today":met+" of 5 habits met"}">${paths}
+    <text x="110" y="118" text-anchor="middle" font-size="46" font-weight="700" fill="var(--ink)">${label}</text>
+    <text x="110" y="142" text-anchor="middle" font-size="14" fill="var(--muted)" style="font-family:var(--body)">habits met today</text></svg>`;
+}
+
+
+/* =====================================================================
+   EXCEL RECORDS FILE  (no library: writes and reads .xlsx directly)
+   ===================================================================== */
+const enc = new TextEncoder();
+const CRC = (()=>{ const t=new Uint32Array(256); for(let n=0;n<256;n++){ let c=n; for(let k=0;k<8;k++) c=c&1?0xEDB88320^(c>>>1):c>>>1; t[n]=c>>>0; } return t; })();
+function crc32(b){ let c=0xFFFFFFFF; for(let i=0;i<b.length;i++) c=CRC[(c^b[i])&255]^(c>>>8); return (c^0xFFFFFFFF)>>>0; }
+function zipStore(files){
+  const u16=n=>[n&255,(n>>8)&255], u32=n=>[n&255,(n>>8)&255,(n>>16)&255,(n>>>24)&255];
+  const now=new Date(), time=(now.getHours()<<11)|(now.getMinutes()<<5)|(now.getSeconds()>>1), date=((now.getFullYear()-1980)<<9)|((now.getMonth()+1)<<5)|now.getDate();
+  const chunks=[], cds=[]; let off=0;
+  files.forEach(f=>{
+    const name=enc.encode(f.name), crc=crc32(f.data), size=f.data.length;
+    const lh=new Uint8Array([...u32(0x04034b50),...u16(20),...u16(0x0800),...u16(0),...u16(time),...u16(date),...u32(crc),...u32(size),...u32(size),...u16(name.length),...u16(0)]);
+    chunks.push(lh,name,f.data);
+    cds.push(new Uint8Array([...u32(0x02014b50),...u16(20),...u16(20),...u16(0x0800),...u16(0),...u16(time),...u16(date),...u32(crc),...u32(size),...u32(size),...u16(name.length),...u16(0),...u16(0),...u16(0),...u16(0),...u32(0),...u32(off)]),name);
+    off+=lh.length+name.length+size;
+  });
+  const cdSize=cds.reduce((a,c)=>a+c.length,0);
+  const eocd=new Uint8Array([...u32(0x06054b50),...u16(0),...u16(0),...u16(files.length),...u16(files.length),...u32(cdSize),...u32(off),...u16(0)]);
+  const all=[...chunks,...cds,eocd], out=new Uint8Array(all.reduce((a,c)=>a+c.length,0)); let p=0;
+  all.forEach(c=>{ out.set(c,p); p+=c.length; }); return out;
+}
+const colName = i => { let n=i+1, r=""; while(n>0){ const m=(n-1)%26; r=String.fromCharCode(65+m)+r; n=Math.floor((n-1)/26); } return r; };
+const xesc = t => String(t).replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F]/g,"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const serial = str => { const [y,m,d]=str.split("-").map(Number); return Math.round((Date.UTC(y,m-1,d)-Date.UTC(1899,11,30))/86400000); };
+function sheetXml(rows, widths){
+  let x='<?xml version="1.0" encoding="UTF-8" standalone="yes"?><worksheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main"><sheetViews><sheetView workbookViewId="0"><pane ySplit="1" topLeftCell="A2" activePane="bottomLeft" state="frozen"/></sheetView></sheetViews><sheetFormatPr defaultRowHeight="15"/><cols>'
+    + widths.map((w,i)=>`<col min="${i+1}" max="${i+1}" width="${w}" customWidth="1"/>`).join("") + '</cols><sheetData>';
+  rows.forEach((r,ri)=>{
+    x+=`<row r="${ri+1}"${ri===0?' ht="32" customHeight="1"':""}>`;
+    r.forEach((v,ci)=>{
+      if(v===null||v===undefined||v==="") return;
+      const ref=colName(ci)+(ri+1);
+      if(ri===0) x+=`<c r="${ref}" t="inlineStr" s="1"><is><t>${xesc(v)}</t></is></c>`;
+      else if(typeof v==="object" && v.d) x+=`<c r="${ref}" s="2"><v>${serial(v.d)}</v></c>`;
+      else if(typeof v==="number") x+=`<c r="${ref}"><v>${v}</v></c>`;
+      else x+=`<c r="${ref}" t="inlineStr"><is><t xml:space="preserve">${xesc(v)}</t></is></c>`;
+    });
+    x+="</row>";
+  });
+  return x+"</sheetData></worksheet>";
+}
+const STYLES='<?xml version="1.0" encoding="UTF-8" standalone="yes"?><styleSheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main"><numFmts count="1"><numFmt numFmtId="164" formatCode="dd mmm yyyy"/></numFmts><fonts count="2"><font><sz val="10"/><name val="Arial"/></font><font><b/><sz val="10"/><color rgb="FFFFFFFF"/><name val="Arial"/></font></fonts><fills count="3"><fill><patternFill patternType="none"/></fill><fill><patternFill patternType="gray125"/></fill><fill><patternFill patternType="solid"><fgColor rgb="FF4A2B4F"/><bgColor indexed="64"/></patternFill></fill></fills><borders count="1"><border><left/><right/><top/><bottom/><diagonal/></border></borders><cellStyleXfs count="1"><xf numFmtId="0" fontId="0" fillId="0" borderId="0"/></cellStyleXfs><cellXfs count="3"><xf numFmtId="0" fontId="0" fillId="0" borderId="0" xfId="0"/><xf numFmtId="0" fontId="1" fillId="2" borderId="0" xfId="0" applyFont="1" applyFill="1" applyAlignment="1"><alignment horizontal="center" vertical="center" wrapText="1"/></xf><xf numFmtId="164" fontId="0" fillId="0" borderId="0" xfId="0" applyNumberFormat="1"/></cellXfs><cellStyles count="1"><cellStyle name="Normal" xfId="0" builtinId="0"/></cellStyles></styleSheet>';
+function buildXlsx(sheets){
+  const NS='http://schemas.openxmlformats.org/spreadsheetml/2006/main', R='http://schemas.openxmlformats.org/officeDocument/2006/relationships';
+  const files=[
+    {name:"[Content_Types].xml",data:enc.encode('<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Override PartName="/xl/workbook.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet.main+xml"/><Override PartName="/xl/styles.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.styles+xml"/>'+sheets.map((_,i)=>`<Override PartName="/xl/worksheets/sheet${i+1}.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml"/>`).join("")+'</Types>')},
+    {name:"_rels/.rels",data:enc.encode('<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="xl/workbook.xml"/></Relationships>')},
+    {name:"xl/workbook.xml",data:enc.encode(`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><workbook xmlns="${NS}" xmlns:r="${R}"><sheets>${sheets.map((sh,i)=>`<sheet name="${xesc(sh.name)}" sheetId="${i+1}" r:id="rId${i+1}"/>`).join("")}</sheets></workbook>`)},
+    {name:"xl/_rels/workbook.xml.rels",data:enc.encode('<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">'+sheets.map((_,i)=>`<Relationship Id="rId${i+1}" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet" Target="worksheets/sheet${i+1}.xml"/>`).join("")+`<Relationship Id="rId${sheets.length+1}" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles" Target="styles.xml"/></Relationships>`)},
+    {name:"xl/styles.xml",data:enc.encode(STYLES)}
+  ];
+  sheets.forEach((sh,i)=>files.push({name:`xl/worksheets/sheet${i+1}.xml`,data:enc.encode(sheetXml(sh.rows,sh.widths))}));
+  return zipStore(files);
+}
+
+const LOG_COLS=[["sleep","Sleep (hrs)"],["sq","Sleep quality (1-5)"],["energy","Energy (1-5)"],["mood","Mood (1-5)"],["flushes","Hot flushes (count)"],["sweats","Night sweats?"],["fog","Brain fog (0-5)"],["joint","Joint aches (0-5)"],["anxiety","Anxiety (0-5)"],["water","Water (glasses)"],["protein","Protein (g)"],["move","Movement (min)"],["strength","Strength session?"],["supps","Supplements taken?"],["notes","Notes"]];
+
+/* ---------- Excel-only 30-day Australian meal guide ---------- */
+const MEAL_GUIDE_30 = [
+  [1,1,"Porridge with milk, banana, cinnamon & walnuts","Chicken, avocado & salad wholegrain wrap","Grilled salmon, sweet potato & steamed broccoli","Greek yoghurt + berries"],
+  [2,1,"Scrambled eggs, spinach & wholegrain toast","Tuna, cucumber, tomato & brown rice bowl","Chicken stir-fry with mixed vegetables & brown rice","Apple + peanut butter"],
+  [3,1,"Greek yoghurt, oats, berries & chia seeds","Lentil & vegetable soup + wholegrain toast","Lean beef mince, roasted vegetables & quinoa","Pear + handful of almonds"],
+  [4,1,"Weet-Bix with milk, strawberries & pumpkin seeds","Leftover beef & quinoa salad","Baked barramundi, baby potatoes, beans & salad","Yoghurt"],
+  [5,1,"Avocado, tomato & poached egg on wholegrain toast","Chickpea, feta & roasted vegetable salad","Chicken fajita bowl with capsicum, corn, avocado & brown rice","Orange + nuts"],
+  [6,1,"Overnight oats with apple, cinnamon & yoghurt","Egg & salad wholegrain sandwich","Wholemeal spaghetti with lean beef and lentil tomato sauce","Carrot sticks + hummus"],
+  [7,1,"Vegetable omelette + sourdough","Leftover spaghetti + side salad","Roast chicken, pumpkin, carrots, peas & potatoes","Fruit + Greek yoghurt"],
+  [8,2,"Porridge with pear, cinnamon & chia","Chicken & roasted pumpkin salad","Grilled fish tacos with cabbage slaw & avocado","Mixed nuts"],
+  [9,2,"Greek yoghurt, kiwi, oats & seeds","Tuna & white bean salad","Beef and vegetable stir-fry with brown rice","Apple + cheese"],
+  [10,2,"Eggs, mushrooms, tomato & wholegrain toast","Pumpkin & lentil soup","Baked chicken, quinoa tabbouleh & tzatziki","Yoghurt + berries"],
+  [11,2,"Weet-Bix, milk, banana & walnuts","Chicken salad wrap","Salmon, brown rice & Asian-style greens","Celery or carrots + hummus"],
+  [12,2,"Overnight oats with berries","Mediterranean chickpea salad","Lean beef burgers on wholegrain buns + salad","Fruit"],
+  [13,2,"Avocado toast + boiled eggs","Leftover burger bowl with salad","Prawn and vegetable stir-fry with noodles","Greek yoghurt"],
+  [14,2,"Banana oat pancakes + yoghurt & berries","Chicken, quinoa & avocado bowl","Vegetable and lentil curry + brown rice","Handful of nuts"],
+  [15,3,"Greek yoghurt, banana, oats & chia","Lentil curry leftovers","Grilled barramundi, sweet potato wedges & salad","Apple + almonds"],
+  [16,3,"Scrambled eggs, avocado & wholegrain toast","Tuna, bean & corn salad","Chicken and vegetable pasta using wholemeal pasta","Yoghurt + fruit"],
+  [17,3,"Porridge with berries & walnuts","Chicken pasta leftovers + salad","Beef, bean & vegetable chilli + brown rice","Capsicum + hummus"],
+  [18,3,"Weet-Bix, milk, sliced pear & seeds","Chilli bowl with avocado","Salmon, roasted pumpkin, quinoa & greens","Greek yoghurt"],
+  [19,3,"Mushroom & spinach omelette","Salmon salad wrap","Homemade chicken curry with vegetables & basmati or brown rice","Fruit + nuts"],
+  [20,3,"Overnight oats with banana & peanut butter","Chickpea & cucumber salad","Lean steak, baked potato & large garden salad","Yoghurt"],
+  [21,3,"Wholegrain toast with avocado, egg & tomato","Steak salad leftovers","Vegetable, bean & chicken soup + wholegrain bread","Pear + cheese"],
+  [22,4,"Porridge with apple, yoghurt & cinnamon","Chicken soup leftovers","Baked salmon, brown rice, broccoli & green beans","Berries + yoghurt"],
+  [23,4,"Greek yoghurt, muesli & kiwi","Salmon & avocado salad","Beef and vegetable fajitas with wholegrain wraps","Apple + peanut butter"],
+  [24,4,"Eggs, spinach, tomato & wholegrain toast","Fajita bowl leftovers","Chickpea & vegetable curry + rice","Nuts + fruit"],
+  [25,4,"Overnight oats with berries & chia","Tuna, avocado & salad sandwich","Grilled chicken, corn, sweet potato & salad","Greek yoghurt"],
+  [26,4,"Weet-Bix with milk, banana & seeds","Chicken and quinoa salad","Wholemeal pasta with prawns, tomato, spinach & zucchini","Carrots + hummus"],
+  [27,4,"Avocado & boiled egg toast","Prawn pasta leftovers + salad","Homemade lean beef meatballs, tomato sauce, wholemeal pasta & vegetables","Fruit"],
+  [28,4,"Vegetable omelette + toast","Mediterranean lentil salad","Roast chicken, sweet potato, pumpkin & greens","Yoghurt + berries"],
+  [29,5,"Greek yoghurt, oats, berries, nuts & seeds","Chicken, avocado & salad bowl","Grilled fish, wholegrain carbohydrate & 2–3 vegetables","Fruit + nuts"],
+  [30,5,"Eggs + vegetables + wholegrain toast","Chickpea or tuna salad wrap","Favourite balanced Thrive meal: protein + wholegrain/starchy veg + colourful vegetables","Yoghurt, fruit or hummus + vegetables"]
+];
+
+const MEAL_GUIDE_NOTES = [
+  ["How to use","This is general meal inspiration, not a prescribed diet. Adjust portions and swap foods for your preferences, allergies, culture, budget and any advice from your health professional."],
+  ["Build your meals","Aim for a mix of colourful vegetables, fruit, wholegrain or high-fibre carbohydrates, protein foods such as fish, eggs, chicken, lean meat, tofu, beans or lentils, and dairy or suitable alternatives."],
+  ["Optional snacks","Snacks are optional. Choose them according to hunger and appetite; examples include fruit, yoghurt, nuts, seeds, hummus or wholegrain foods."],
+  ["Salmon swap","Barramundi, tuna, sardines or another fish you enjoy."],
+  ["Chicken swap","Turkey, lean beef, eggs, tofu, tempeh or legumes."],
+  ["Beef swap","Chicken, lentils, tofu, tempeh or beans."],
+  ["Dairy yoghurt swap","A suitable fortified plant-based yoghurt, such as soy, if preferred."],
+  ["Brown rice swap","Basmati rice, quinoa, barley, wholemeal couscous or another preferred wholegrain."],
+  ["Bread or wrap swap","Wholegrain crackers, rice, quinoa, potato or sweet potato."],
+  ["Nuts swap","Seeds, if nuts are not suitable."],
+  ["Chickpea swap","Lentils, cannellini beans, kidney beans or another legume."],
+  ["Prep once, use twice","Cook a grain, roast a tray of vegetables, boil eggs, wash salad vegetables and prepare a protein option. Use dinner leftovers for lunch where practical."],
+  ["Simple Sunday prep","Prepare brown rice or quinoa; roast pumpkin, sweet potato, capsicum and zucchini; boil eggs; wash salad vegetables; portion nuts or seeds; prepare two or three overnight-oat jars."],
+  ["Reflection idea","Use the blank My swap / notes and How I felt columns to notice meals you enjoyed and any patterns in hunger, energy, comfort or symptoms."],
+  ["Important","Individual nutrition needs vary. If you have a medical condition, food allergy/intolerance, special dietary requirement, or concerns about symptoms, seek personalised advice from an appropriate health professional."]
+];
+
+
+/* ---------- workbook sections mirrored in the app ---------- */
+const JOURNEY_AREAS=["Sleep","Energy","Mood","Stress and overwhelm","Hot flushes and night sweats","Brain fog and focus","Joint and muscle comfort","Digestion and bloating","Body confidence","Intimacy and libido","Strength and fitness","Feeling supported"];
+const SYMPTOM_FIELDS=[
+  ["hot","Hot flushes"],["night","Night sweats"],["troubleSleep","Trouble sleeping"],["fatigue","Fatigue"],["brainFog","Brain fog"],
+  ["memory","Memory lapses"],["irritability","Irritability"],["anxiety","Anxiety"],["lowMood","Low mood"],["jointAches","Joint aches"],
+  ["headaches","Headaches"],["palpitations","Palpitations"],["bloating","Bloating"],["dryness","Vaginal dryness"],["libido","Low libido"]
+];
+const HABIT_DEFAULTS=["Protein at each meal","Veg and fibre at lunch and dinner","Supplements as advised","Water goal met","Moved 30+ minutes","Strength session","Screens off before bed","Consistent bedtime","Stress reset (breathing or mindfulness)","Time just for me"];
+if(!Array.isArray(S.habitNames)||S.habitNames.length!==HABIT_DEFAULTS.length) S.habitNames=HABIT_DEFAULTS.slice();
+const COURSE_LESSONS=[
+  [1,"Understanding Your Menopause Journey",1,"What is happening in your body","My Symptom Snapshot",1],
+  [1,"Understanding Your Menopause Journey",2,"Perimenopause, menopause and beyond","My Timeline and Questions",1],
+  [1,"Understanding Your Menopause Journey",3,"Tracking symptoms and spotting patterns","Trigger Spotting Sheet",2],
+  [1,"Understanding Your Menopause Journey",4,"Working with your health team","Appointment Prep Sheet",2],
+  [2,"Sleep and Stress",1,"Sleep foundations","Sleep Audit",3],
+  [2,"Sleep and Stress",2,"Creating a calm sleep space","Bedroom Reset Checklist",3],
+  [2,"Sleep and Stress",3,"Stress and your nervous system","Stress Triggers Map",4],
+  [2,"Sleep and Stress",4,"Daily calm practices","5-Minute Reset Plan",4],
+  [3,"Nutrition for Midlife",1,"Protein, fibre and balanced plates","Plate Builder",5],
+  [3,"Nutrition for Midlife",2,"Steady energy through the day","My Meal Rhythm",5],
+  [3,"Nutrition for Midlife",3,"Gut health and bloating","Food and Symptom Diary",6],
+  [3,"Nutrition for Midlife",4,"Shopping and meal prep, Aussie style","Weekly Shopping List",6],
+  [4,"Movement and Strength",1,"Why strength matters now","Movement Goals",7],
+  [4,"Movement and Strength",2,"Getting started with strength","My Strength Starter Plan",7],
+  [4,"Movement and Strength",3,"Walking, cardio and joint-friendly movement","Weekly Movement Planner",8],
+  [4,"Movement and Strength",4,"Balance, mobility and recovery","Recovery Checklist",8],
+  [5,"Mood, Mind and Brain Fog",1,"Mood, irritability and anxiety","Mood Check-In Guide",9],
+  [5,"Mood, Mind and Brain Fog",2,"Understanding brain fog","Focus and Memory Toolkit",9],
+  [5,"Mood, Mind and Brain Fog",3,"Boundaries and self-compassion","My Boundaries Plan",10],
+  [5,"Mood, Mind and Brain Fog",4,"Building your support circle","Support Map",10],
+  [6,"Thriving Long Term",1,"Looking after bones and heart","Long-Term Health Checklist",11],
+  [6,"Thriving Long Term",2,"Confidence, intimacy and body image","Confidence Journal",11],
+  [6,"Thriving Long Term",3,"Your personal Thrive plan","My Thrive Plan",12],
+  [6,"Thriving Long Term",4,"Celebrate and plan what is next","Wins and Next Steps",12]
+].map(x=>({module:x[0],moduleName:x[1],lesson:x[2],title:x[3],worksheet:x[4],week:x[5],key:x[0]+"-"+x[2]}));
+const symptomTotal=o=>SYMPTOM_FIELDS.reduce((n,[k])=>n+num(o&&o[k]),0);
+const habitCount=o=>HABIT_DEFAULTS.reduce((n,_,i)=>n+((o&&o[i])?1:0),0);
+const thriveScore=e=>{ if(!e) return null; const vals=[e.sq,e.mood,e.energy,has(e.stress)?6-num(e.stress):null].filter(v=>typeof v==="number"); return vals.length?avg(vals):null; };
+
+function recordsSheets(){
+  const t=T(), st=S.settings, dates=[...new Set([...Object.keys(S.entries),...Object.keys(S.symptoms),...Object.keys(S.habits)])].sort();
+  const log=[["Date",...LOG_COLS.map(c=>c[1]),"Stress (1-5)","Overall symptoms (0-5)","Main symptom today","Daily action","Action done?","Thrive score"]];
+  dates.forEach(d=>{ const e=S.entries[d]||{}; log.push([{d},...LOG_COLS.map(c=>has(e[c[0]])?e[c[0]]:null),has(e.stress)?e.stress:null,has(e.overall)?e.overall:null,e.mainSym||null,e.action||null,e.actionDone?"Yes":"No",thriveScore(e)]); });
+  const dayRows=(o,fn)=>DAYS.map((n,i)=>o[i]?[n,...fn(o[i])]:null).filter(Boolean);
+  const symptoms=[["Date",...SYMPTOM_FIELDS.map(x=>x[1]),"Total (0-45)"]];
+  Object.keys(S.symptoms).sort().forEach(d=>{const o=S.symptoms[d]||{}; symptoms.push([{d},...SYMPTOM_FIELDS.map(([k])=>has(o[k])?o[k]:null),symptomTotal(o)]);});
+  const habits=[["Date",...S.habitNames,"Habits done (of 10)","Habit score"]];
+  Object.keys(S.habits).sort().forEach(d=>{const o=S.habits[d]||{}; const c=habitCount(o); habits.push([{d},...HABIT_DEFAULTS.map((_,i)=>o[i]?"✓":null),c,c/10]);});
+  const journeyRows=[["MY GOALS","Why it matters","What success looks like","Target date","Status"],...S.goals.map(g=>[g.t,g.why||null,g.success||null,g.date||null,g.status||null]),[],["WHAT I WANT TO IMPROVE","Starting point","Where I am now","Change","My focus?"]];
+  JOURNEY_AREAS.forEach(a=>{const r=S.journey.ratings[a]||{}; journeyRows.push([a,has(r.start)?r.start:null,has(r.current)?r.current:null,has(r.start)&&has(r.current)?r.current-r.start:null,r.focus?"Yes":"No"]);});
+  journeyRows.push([], ["MY INTENTIONS","Response"]);
+  [["phrase","My word or phrase for this season"],["letgo","What I'm ready to let go of"],["start","What I'm excited to start"],["support","Who supports me"],["thriving","What thriving looks like for me"],["daily","One thing I will do just for me each day"]].forEach(([k,l])=>journeyRows.push([l,S.journey.intentions[k]||null]));
+  const weekly=[["Week","Week starting","Priority 1","Priority 2","Priority 3","Day","Meals and wellbeing actions","Movement","Appointments","Done?"]];
+  Object.keys(S.weeklyPlans).map(Number).sort((a,b)=>a-b).forEach(w=>{const p=S.weeklyPlans[w]||{}, pr=p.priorities||[]; let start=addDays(st.start,(w-1)*7); DAYS.forEach((day,i)=>{const x=(p.days&&p.days[i])||{}, mv=S.planMove[i]||{}; weekly.push([w,{d:start},pr[0]||null,pr[1]||null,pr[2]||null,day,x.action||null,mv.focus?(mv.focus+(mv.min?" "+mv.min+" min":"")):null,x.appointment||null,x.done?"Yes":"No"]); start=addDays(start,1);});});
+  const course=[["Module","Module name","Lesson","Lesson title","Worksheet","Key takeaway / notes","Status","Suggested week","Date completed"]];
+  COURSE_LESSONS.forEach(l=>{const c=S.course[l.key]||{}; course.push([l.module,l.moduleName,l.lesson,l.title,l.worksheet,c.notes||null,c.status||"Not started",l.week,c.date||null]);});
+  const mealGuide=[["Day","Week","Breakfast","Lunch","Dinner","Optional snack","Followed?","My swap / notes","How I felt"]];
+  MEAL_GUIDE_30.forEach(r=>{const m=S.mealGuide[r[0]]||{}; mealGuide.push([...r,m.done?"Yes":"No",m.swap||null,m.feel||null]);});
+  return [
+    {name:"Daily Log",rows:log,widths:[13,10,12,10,10,12,11,10,10,10,11,10,11,12,13,40,10,12,24,34,12,12]},
+    {name:"Settings",rows:[["Setting","Value"],["Your name",st.name||null],["Programme",st.programme],["Start date",{d:st.start}],["Sleep target (hours)",t.sleep],["Water target (glasses)",t.water],["Protein target (g)",t.protein],["Movement target (min)",t.move],["Strength sessions per week",t.strength]],widths:[28,26]},
+    {name:"My Thrive Journey",rows:journeyRows,widths:[42,42,36,14,14]},
+    {name:"Weekly Planner",rows:weekly,widths:[8,14,30,30,30,14,42,26,34,10]},
+    {name:"Symptom Tracker",rows:symptoms,widths:[13,...SYMPTOM_FIELDS.map(()=>18),12]},
+    {name:"Habit Tracker",rows:habits,widths:[13,...HABIT_DEFAULTS.map(()=>24),14,12]},
+    {name:"Goals",rows:[["Goal","Why it matters","Target date","Status"],...S.goals.map(g=>[g.t,g.why||null,g.date||null,g.status||null])],widths:[36,40,14,14]},
+    {name:"Supplements",rows:[["Name","Dose","When","What it is for","Recommended by","Review date"],...S.supps.map(x=>[x.name,x.dose||null,x.when||null,x.purpose||null,x.by||null,x.review||null])],widths:[26,16,14,30,22,14]},
+    {name:"Appointments",rows:[["Date","Who with","About","Questions to ask","What we agreed"],...S.appts.map(a=>[a.date||null,a.with||null,a.purpose||null,a.q||null,a.out||null])],widths:[14,22,26,40,40]},
+    {name:"Movement Plan",rows:[["Day","Focus","Minutes","Details"],...dayRows(S.planMove,p=>[p.focus,p.min||null,p.note||null])],widths:[14,20,10,34]},
+    {name:"Meal Plan",rows:[["Day","Breakfast","Lunch","Dinner","Snacks"],...dayRows(S.planMeals,m=>[m.b||null,m.l||null,m.d||null,m.s||null])],widths:[14,28,28,28,24]},
+    {name:"Course Tracker",rows:course,widths:[8,34,8,40,30,45,16,12,14]},
+    {name:"30-Day Meal Guide",rows:mealGuide,widths:[8,8,42,48,54,34,12,34,28]},
+    {name:"Meal Guide Notes",rows:[["Section","Guidance"],...MEAL_GUIDE_NOTES],widths:[24,100]},
+    {name:"Weekly Reviews",rows:[["Week","Wins","Challenges","Lessons learned","Changes noticed","Next week","Overall (1-5)"],...Object.keys(S.reviews).map(Number).sort((a,b)=>a-b).map(w=>{const r=S.reviews[w];return [w,r.wins||null,r.hard||null,r.lessons||null,r.changes||null,r.next||null,has(r.overall)?r.overall:null];})],widths:[8,40,40,40,40,40,12]},
+    {name:"Shopping",rows:[["Item","Got it?"],...S.shopping.map(x=>[x.t,x.done?"Yes":"No"])],widths:[34,10]}
+  ];
+}
+async function saveBlob(name, blob){
+  try{
+    if(window.claude && typeof window.claude.use==="function"){
+      const d=await window.claude.use("downloads");
+      if(d){ try{ await d.save({filename:name,data:blob}); return true; }catch(e){ if(e&&e.code==="declined") return false; throw e; } }
+    }
+  }catch(e){}
+  const url=URL.createObjectURL(blob), a=document.createElement("a");
+  a.href=url; a.download=name; document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(()=>URL.revokeObjectURL(url),5000); return true;
+}
+async function exportXlsx(){
+  try{
+    const bytes=buildXlsx(recordsSheets());
+    const nm=(S.settings.name||"records").replace(/[^A-Za-z0-9_-]+/g,"-");
+    const blob=new Blob([bytes],{type:"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"});
+    if(await saveBlob(`Thrive-${nm}-${today()}.xlsx`,blob)){
+      S.lastSave=new Date().toISOString(); S.savedCount=Object.keys(S.entries).length; save(); render(); toast("Your Excel file is ready — 30-day meal guide included");
+    }
+  }catch(e){ toast("Sorry, the file couldn't be created."); }
+}
+
+/* ----- reading an .xlsx ----- */
+async function inflateRaw(u8){
+  const ds=new DecompressionStream("deflate-raw");
+  return new Uint8Array(await new Response(new Blob([u8]).stream().pipeThrough(ds)).arrayBuffer());
+}
+async function unzipXml(buf){
+  const u8=new Uint8Array(buf), dv=new DataView(buf), dec=new TextDecoder(); const out={};
+  let e=u8.length-22; while(e>=0 && dv.getUint32(e,true)!==0x06054b50) e--;
+  if(e<0) throw new Error("not a zip");
+  const n=dv.getUint16(e+10,true); let p=dv.getUint32(e+16,true);
+  for(let i=0;i<n;i++){
+    if(dv.getUint32(p,true)!==0x02014b50) break;
+    const method=dv.getUint16(p+10,true), csize=dv.getUint32(p+20,true), nl=dv.getUint16(p+28,true), xl=dv.getUint16(p+30,true), cl=dv.getUint16(p+32,true), lo=dv.getUint32(p+42,true);
+    const name=dec.decode(u8.subarray(p+46,p+46+nl));
+    if(/\.(xml|rels)$/.test(name)){
+      const start=lo+30+dv.getUint16(lo+26,true)+dv.getUint16(lo+28,true), data=u8.subarray(start,start+csize);
+      out[name]=dec.decode(method===0?data:await inflateRaw(data));
+    }
+    p+=46+nl+xl+cl;
+  }
+  return out;
+}
+function readWorkbook(files){
+  const NS="http://schemas.openxmlformats.org/spreadsheetml/2006/main", RN="http://schemas.openxmlformats.org/officeDocument/2006/relationships";
+  const dp=new DOMParser(), X=t=>dp.parseFromString(t,"application/xml"), all=(n,tag)=>Array.from(n.getElementsByTagNameNS(NS,tag));
+  const shared=files["xl/sharedStrings.xml"]?all(X(files["xl/sharedStrings.xml"]),"si").map(si=>all(si,"t").map(t=>t.textContent).join("")):[];
+  const rels={}; Array.from(X(files["xl/_rels/workbook.xml.rels"]).getElementsByTagName("Relationship")).forEach(r=>{ const t=r.getAttribute("Target"); rels[r.getAttribute("Id")]=t.startsWith("/")?t.slice(1):"xl/"+t; });
+  const sheets={};
+  all(X(files["xl/workbook.xml"]),"sheet").forEach(sh=>{
+    const path=rels[sh.getAttributeNS(RN,"id")]; if(!path||!files[path]) return;
+    const rows=[];
+    all(X(files[path]),"row").forEach(row=>{
+      all(row,"c").forEach(c=>{
+        const ref=c.getAttribute("r")||"", m=ref.match(/^([A-Z]+)(\d+)$/); if(!m) return;
+        let ci=0; for(const ch of m[1]) ci=ci*26+ch.charCodeAt(0)-64; ci--; const ri=+m[2]-1;
+        const t=c.getAttribute("t"), vEl=c.getElementsByTagNameNS(NS,"v")[0], v=vEl?vEl.textContent:"";
+        let val=null;
+        if(t==="s") val=shared[+v]; else if(t==="inlineStr") val=all(c,"t").map(x=>x.textContent).join(""); else if(t==="str") val=v; else if(t==="b") val=v==="1"; else if(t==="e") val=null; else if(v!=="") val=parseFloat(v);
+        (rows[ri]=rows[ri]||[])[ci]=val;
+      });
+    });
+    sheets[sh.getAttribute("name")]=rows;
+  });
+  return interpret(sheets);
+}
+function toDateStr(v){
+  if(typeof v==="number" && v>20000 && v<80000){ const d=new Date(Date.UTC(1899,11,30)+Math.round(v)*86400000); return d.getUTCFullYear()+"-"+pad(d.getUTCMonth()+1)+"-"+pad(d.getUTCDate()); }
+  if(typeof v==="string"){ const m=v.match(/^(\d{4})-(\d{2})-(\d{2})/); if(m) return m[1]+"-"+m[2]+"-"+m[3]; const t=Date.parse(v); if(!isNaN(t)) return ds(new Date(t)); }
+  return null;
+}
+const yes=v=>v===true||/^y/i.test(String(v)) ? "Yes" : (v===false||/^n/i.test(String(v)) ? "No" : undefined);
+function objs(rows){
+  if(!rows||!rows.length) return [];
+  const hdr=(rows[0]||[]).map(h=>String(h==null?"":h).toLowerCase().trim());
+  return rows.slice(1).filter(r=>r&&r.some(c=>c!=null&&c!=="")).map(r=>({get:re=>{ const i=hdr.findIndex(h=>re.test(h)); return i>=0&&r[i]!=null&&r[i]!==""?r[i]:undefined; }}));
+}
+function interpret(sheets){
+  const res={entries:{},found:{}};
+  // daily log: by name, else any sheet that looks like one
+  const names=Object.keys(sheets);
+  const order=[...names.filter(n=>/daily log/i.test(n)),...names.filter(n=>!/daily log/i.test(n))];
+  for(const n of order){
+    const rows=sheets[n]; let h=-1;
+    for(let i=0;i<Math.min(15,rows.length);i++){ const low=(rows[i]||[]).map(c=>String(c==null?"":c).toLowerCase().trim()); if(low.some(c=>c.startsWith("date"))&&low.some(c=>c.startsWith("sleep"))){ h=i; break; } }
+    if(h<0) continue;
+    const low=rows[h].map(c=>String(c==null?"":c).toLowerCase().trim());
+    const M=[["sq",/^sleep quality/],["sleep",/^sleep/],["energy",/^energy/],["mood",/^mood/],["flushes",/^hot flush/],["sweats",/^night sweat/],["fog",/^brain fog/],["joint",/^joint/],["anxiety",/^anxiety/],["water",/^water/],["protein",/^protein/],["move",/^movement/],["strength",/^strength/],["supps",/^supplement/],["notes",/^notes/]];
+    const col={}; let dc=-1;
+    low.forEach((hd,i)=>{ if(dc<0&&hd.startsWith("date")){dc=i;return;} for(const [k,re] of M){ if(re.test(hd)){ if(col[k]===undefined) col[k]=i; return; } } });
+    for(let r=h+1;r<rows.length;r++){
+      const row=rows[r]; if(!row) continue; const d=toDateStr(row[dc]); if(!d) continue;
+      const e={}; let any=false;
+      Object.keys(col).forEach(k=>{ const v=row[col[k]]; if(v==null||v==="") return;
+        if(k==="sweats"||k==="strength"||k==="supps"){ const y=yes(v); if(y){e[k]=y;any=true;} }
+        else if(k==="notes"){ e[k]=String(v); any=true; }
+        else { const num_=typeof v==="number"?v:parseFloat(v); if(!isNaN(num_)){ e[k]=num_; any=true; } } });
+      if(any) res.entries[d]=e;
+    }
+    res.found.log=true; break;
+  }
+  const byName=re=>{ const n=names.find(x=>re.test(x)); return n?sheets[n]:null; };
+  const st=byName(/^settings$/i);
+  if(st){
+    const s={targets:{}}; let got=false;
+    st.forEach(row=>{ if(!row) return; const a=row.findIndex(c=>typeof c==="string"&&c.trim()); if(a<0) return;
+      const label=row[a].toLowerCase().trim(), b=row.findIndex((c,i)=>i>a&&c!=null&&c!==""); if(b<0) return; const v=row[b];
+      const nm=(k,val)=>{ if(typeof val==="number"&&val>0){ s.targets[k]=val; got=true; } };
+      if(/^(your )?name/.test(label)&&typeof v==="string"){ s.name=v; got=true; }
+      else if(/^programme/.test(label)&&typeof v==="string"){ s.programme=v; got=true; }
+      else if(/^start date/.test(label)){ const d=toDateStr(v); if(d){ s.start=d; got=true; } }
+      else if(/^sleep/.test(label)) nm("sleep",v); else if(/^water/.test(label)) nm("water",v);
+      else if(/^protein/.test(label)) nm("protein",v); else if(/^movement/.test(label)) nm("move",v);
+      else if(/^strength/.test(label)) nm("strength",v); });
+    if(got) res.settings=s;
+  }
+  const dayIdx=v=>DAYS.findIndex(d=>String(v).toLowerCase().startsWith(d.slice(0,3).toLowerCase()));
+  let r_;
+  if(r_=byName(/^goals$/i)){ res.goals=objs(r_).map(o=>({t:o.get(/^goal/),why:o.get(/^why/),date:toDateStr(o.get(/target/))||"",status:o.get(/^status/)||"In progress"})).filter(g=>g.t).map(g=>({...g,t:String(g.t),why:g.why?String(g.why):""})); }
+  if(r_=byName(/^supplements$/i)){ res.supps=objs(r_).map(o=>({name:o.get(/^name/),dose:o.get(/^dose/),when:o.get(/^when/),purpose:o.get(/for$|purpose/),by:o.get(/recommended/),review:toDateStr(o.get(/review/))||""})).filter(x=>x.name).map(x=>({name:String(x.name),dose:x.dose?String(x.dose):"",when:x.when?String(x.when):"Morning",purpose:x.purpose?String(x.purpose):"",by:x.by?String(x.by):"",review:x.review})); }
+  if(r_=byName(/^appointments$/i)){ res.appts=objs(r_).map(o=>({date:toDateStr(o.get(/^date/))||"",with:o.get(/who/),purpose:o.get(/about/),q:o.get(/questions/),out:o.get(/agreed/)})).filter(a=>a.date||a.with).map(a=>({date:a.date,with:a.with?String(a.with):"",purpose:a.purpose?String(a.purpose):"",q:a.q?String(a.q):"",out:a.out?String(a.out):""})); }
+  if(r_=byName(/^movement plan$/i)){ res.planMove={}; objs(r_).forEach(o=>{ const i=dayIdx(o.get(/^day/)); const f=o.get(/^focus/); if(i>=0&&f) res.planMove[i]={focus:String(f),min:+o.get(/^minutes/)||0,note:o.get(/^details/)?String(o.get(/^details/)):""}; }); }
+  if(r_=byName(/^meal plan$/i)){ res.planMeals={}; objs(r_).forEach(o=>{ const i=dayIdx(o.get(/^day/)); if(i>=0) res.planMeals[i]={b:o.get(/^breakfast/)||"",l:o.get(/^lunch/)||"",d:o.get(/^dinner/)||"",s:o.get(/^snacks/)||""}; }); }
+  if(r_=byName(/^weekly reviews$/i)){ res.reviews={}; objs(r_).forEach(o=>{ const w=o.get(/^week/); if(typeof w==="number") res.reviews[w]={wins:o.get(/^wins/)||"",hard:o.get(/^challenges/)||"",lessons:o.get(/^lessons/)||"",changes:o.get(/^changes/)||"",next:o.get(/^next/)||"",overall:o.get(/^overall/)}; }); }
+  if(r_=byName(/^symptom tracker$/i)){ res.symptoms={}; objs(r_).forEach(o=>{ const d=toDateStr(o.get(/^date/)); if(!d) return; const x={}; const pats={hot:/^hot flush/,night:/^night sweat/,troubleSleep:/^trouble sleep/,fatigue:/^fatigue/,brainFog:/^brain fog/,memory:/^memory/,irritability:/^irritability/,anxiety:/^anxiety/,lowMood:/^low mood/,jointAches:/^joint aches/,headaches:/^headache/,palpitations:/^palpitation/,bloating:/^bloating/,dryness:/^vaginal/,libido:/^low libido/}; Object.keys(pats).forEach(k=>{const v=o.get(pats[k]); if(typeof v==="number") x[k]=v;}); if(Object.keys(x).length) res.symptoms[d]=x; }); }
+  if(r_=byName(/^habit tracker$/i)){ res.habits={}; objs(r_).forEach(o=>{const d=toDateStr(o.get(/^date/)); if(!d)return; const x={}; const pats=[/^protein at/,/^veg and fibre/,/^supplements as/,/^water goal/,/^moved /,/^strength session/,/^screens off/,/^consistent bedtime/,/^stress reset/,/^time just/]; pats.forEach((re,i)=>{const v=o.get(re); if(v!=null&&String(v).trim()) x[i]=true;}); if(Object.keys(x).length) res.habits[d]=x;}); }
+  if(r_=byName(/^course tracker$/i)){ res.course={}; objs(r_).forEach(o=>{const m=o.get(/^module$/), l=o.get(/^lesson$/); if(typeof m!=="number"||typeof l!=="number")return; const key=m+"-"+l; res.course[key]={status:o.get(/^status/)||"Not started",notes:o.get(/notes|takeaway/)||"",date:toDateStr(o.get(/date completed/))||""};}); }
+  if(r_=byName(/^30-day meal guide$/i)){ res.mealGuide={}; objs(r_).forEach(o=>{const d=o.get(/^day$/); if(typeof d!=="number")return; res.mealGuide[d]={done:yes(o.get(/followed/))==="Yes",swap:o.get(/swap/)||"",feel:o.get(/how i felt/)||""};}); }
+  if(r_=byName(/^shopping$/i)){ res.shopping=objs(r_).map(o=>({t:o.get(/^item/),done:yes(o.get(/^got/))==="Yes"})).filter(x=>x.t).map(x=>({t:String(x.t),done:x.done})); }
+  return res;
+}
+async function importFile(file){
+  if(!file) return;
+  if(typeof DecompressionStream==="undefined"){ toast("This browser is too old to open Excel files. Please update it."); return; }
+  try{
+    const data=readWorkbook(await unzipXml(await file.arrayBuffer()));
+    const n=Object.keys(data.entries).length;
+    if(!n && !data.settings && !data.goals && !data.supps && !data.appts){ toast("No records found in that file."); return; }
+    pending=data;
+    const fresh=Object.keys(data.entries).filter(d=>!S.entries[d]).length;
+    const bits=[]; if(data.goals&&data.goals.length) bits.push(data.goals.length+" goals"); if(data.supps&&data.supps.length) bits.push(data.supps.length+" supplements"); if(data.appts&&data.appts.length) bits.push(data.appts.length+" appointments");
+    sheet(`<h2>Open this file?</h2>
+      <p style="margin:.6rem 0"><b>${n}</b> check-in${n===1?"":"s"} found, <b>${fresh}</b> new to this device${bits.length?", plus "+bits.join(", "):""}.</p>
+      <p class="muted small">Adding keeps what is already here and brings in the file's check-ins. If a day is in both, the file's version is used.</p>
+      <div class="stack-sm" style="margin-top:1rem"><button class="btn primary block" data-a="importAdd">Add to this device</button><button class="btn danger block" data-a="importReplace">Replace everything on this device</button><button class="btn quiet block" data-a="closeSheet">Cancel</button></div>`);
+  }catch(e){ toast("That file couldn't be read. Is it an Excel (.xlsx) file?"); }
+}
+function applyImport(mode){
+  const p=pending; if(!p) return; pending=null;
+  const lists=["goals","supps","appts","shopping"], objsK=["planMove","planMeals","reviews","symptoms","habits","weeklyPlans","course","mealGuide","journey"];
+  if(mode==="replace"){
+    S.entries=Object.assign({},p.entries);
+    if(p.settings){ const st=p.settings; S.settings=Object.assign({},S.settings,{name:st.name!=null?st.name:S.settings.name,programme:st.programme||S.settings.programme,start:st.start||S.settings.start,targets:Object.assign({},S.settings.targets,st.targets)}); }
+    lists.forEach(k=>{ if(p[k]) S[k]=p[k]; }); objsK.forEach(k=>{ if(p[k]) S[k]=p[k]; });
+  } else {
+    Object.assign(S.entries,p.entries);
+    lists.forEach(k=>{ if(p[k]&&p[k].length&&!S[k].length) S[k]=p[k]; }); objsK.forEach(k=>{ if(p[k]&&Object.keys(p[k]).length&&!Object.keys(S[k]).length) S[k]=p[k]; });
+    if(p.settings&&p.settings.start&&Object.keys(S.entries).length===Object.keys(p.entries).length) S.settings.start=p.settings.start;
+  }
+  const first=Object.keys(S.entries).sort()[0]; if(first && first<S.settings.start) S.settings.start=first;
+  S.setup=true; S.draft=null; W=null; save(); closeSheet(); route={tab:"today",sub:null}; render(); window.scrollTo(0,0);
+  toast("Your records are back");
+}
+function savePrompt(){
+  const n=Object.keys(S.entries).length, unsaved=n-(S.savedCount||0);
+  const sunday=new Date().getDay()===0;
+  if(unsaved>=7||(!S.lastSave&&n>=3)||(sunday&&unsaved>=1)) return `<section class="panel tint stack-sm"><h3>${sunday?"It's Sunday, a good day to save a copy":"Keep a copy of your records"}</h3><p class="muted">${unsaved} check-in${unsaved===1?" isn't":"s aren't"} saved to an Excel file yet.</p><button class="btn small" data-a="saveXlsx">Save to Excel</button></section>`;
+  return "";
+}
+
+/* =====================================================================
+   SCREENS
+   ===================================================================== */
+function viewToday(){
+  const t=today(), e=S.entries[t], nm=S.settings.name;
+  const wk=weekNo(t), day=diffDays(S.settings.start,t)+1;
+  const sub = day>=1 ? `${long(t)}. Week ${wk}, day ${day}.` : `${long(t)}. Your programme starts ${long(S.settings.start)}.`;
+  const p=habitProgress(e), tg=T();
+  const names=["Sleep","Water","Protein","Movement","Supplements"];
+  const vals=[
+    e&&has(e.sleep)?`${f1(e.sleep)} of ${tg.sleep} h`:`${tg.sleep} h goal`,
+    e?`${num(e.water)} of ${tg.water}`:`${tg.water} glasses`,
+    e?`${num(e.protein)} of ${tg.protein} g`:`${tg.protein} g goal`,
+    e?`${num(e.move)} of ${tg.move} min`:`${tg.move} min goal`,
+    e?(e.supps==="Yes"?"Taken":"Not yet"):"Daily"
+  ];
+  const legend=names.map((n,i)=>`<div><i class="${p[i]>=1?"on":p[i]>0?"part":""}"></i><span><b>${n}</b><br><span class="muted small">${vals[i]}</span></span></div>`).join("");
+  const st=streak();
+  const plan=S.planMove[wkday(t)];
+  const done=!!S.planDone[t];
+  const moveBlock = plan&&plan.focus ? `
+    <section class="panel">
+      <div class="sect-title"><h3>Today's movement</h3><button class="linkbtn" data-a="go" data-tab="plan">Edit plan</button></div>
+      <label class="check"><input type="checkbox" data-a="doneToday" ${done?"checked":""}><span><b>${esc(plan.focus)}</b>${plan.min?`, ${plan.min} min`:""}${plan.note?`<br><span class="muted small">${esc(plan.note)}</span>`:""}</span></label>
+    </section>` : "";
+  const cta = e
+    ? `<div class="panel tint stack-sm"><h3>Today is logged</h3><p class="muted">Symptom load ${symptomLoad(e)} out of 20 (lower is better).${st>1?` You have logged ${st} days in a row.`:""}</p><button class="btn block" data-a="openCheckin" data-date="${t}">Edit today's check-in</button></div>`
+    : `<button class="btn primary block" data-a="openCheckin" data-date="${t}">Start today's check-in</button><p class="muted small" style="text-align:center">About two minutes. Every question is optional.</p>`;
+  return `<div class="wrap stack-lg">
+    <header class="top brand-row">${logoImg("logo-chip")}<div><h1>${greeting()}${nm?", "+esc(nm):""}</h1><p class="sub">${esc(sub)}</p></div></header>
+    <section class="hero">${ring(e)}<div class="legend">${legend}</div></section>
+    ${cta}
+    ${moveBlock}
+    ${savePrompt()}
+    <section class="panel"><h3>Something helpful</h3><p style="margin-top:.4rem">${esc(tipOfDay())}</p></section>
+  </div>`;
+}
+
+/* ----- check-in wizard ----- */
+function openCheckin(date){
+  date = date || today();
+  const existing = S.entries[date];
+  let data;
+  if(S.draft && S.draft.date===date) data = S.draft.data;
+  else data = existing ? JSON.parse(JSON.stringify(existing)) : {flushes:0,water:0,protein:0,move:0};
+  W = {date, step:0, data, editing:!!existing};
+  route = {tab:"checkin", sub:null};
+  render(); window.scrollTo(0,0);
+}
+function draftSave(){ if(W){ S.draft={date:W.date,data:W.data}; save(); } }
+const STEP_TITLES=["Sleep and energy","Symptoms","Daily habits","Notes and save"];
+
+function viewCheckin(){
+  if(!W) openCheckinInit();
+  const d=W.data, tg=T();
+  const bar=`<div class="steps" aria-hidden="true">${STEP_TITLES.map((_,i)=>`<i class="${i<W.step?"done":i===W.step?"now":""}"></i>`).join("")}</div>`;
+  const head=`<header class="stack-sm"><div class="row between"><span class="muted small">Step ${W.step+1} of 4</span><button class="linkbtn small" data-a="pickDay">${W.date===today()?"Today":esc(short(W.date))}, change day</button></div>${bar}<h1>${STEP_TITLES[W.step]}</h1></header>`;
+  let body="";
+  if(W.step===0){
+    body=`<div>
+      <div class="q"><span class="lab">Hours of sleep last night</span><p class="help">Your best guess is fine. Your goal is ${tg.sleep} hours.</p>
+        ${stepper("sleep",0,24,0.5,"hours",d.sleep,{start:7})}</div>
+      <div class="q"><span class="lab">How well did you sleep?</span><p class="help">Think about how rested you felt.</p>${chips("sq",FACES,d.sq)}<div class="ends"><span>Very poor</span><span>Excellent</span></div></div>
+      <div class="q"><span class="lab">Energy today</span>${chips("energy",FACES,d.energy)}<div class="ends"><span>Exhausted</span><span>Full of energy</span></div></div>
+      <div class="q"><span class="lab">Mood today</span>${chips("mood",FACES,d.mood)}<div class="ends"><span>Very low</span><span>Great</span></div></div>
+      <div class="q"><span class="lab">Stress today</span>${chips("stress",STRESS15,d.stress)}<div class="ends"><span>Very calm</span><span>Very stressed</span></div></div>
+    </div>`;
+  } else if(W.step===1){
+    const sc=(f,l,h,a,b)=>`<div class="q"><span class="lab">${l}</span><p class="help">${h}</p>${chips(f,SCALE05,d[f],"six")}<div class="ends"><span>${a}</span><span>${b}</span></div></div>`;
+    body=`<div>
+      <div class="q"><span class="lab">Hot flushes today</span><p class="help">How many did you notice? Zero is a good answer too.</p>${stepper("flushes",0,60,1,"today",d.flushes,{start:0})}</div>
+      <div class="q"><span class="lab">Night sweats last night?</span>${yn("sweats",d.sweats)}</div>
+      ${sc("fog","Brain fog","Trouble concentrating or finding words.","None","Severe")}
+      ${sc("joint","Joint aches","Stiffness or aching in joints and muscles.","None","Severe")}
+      ${sc("anxiety","Anxiety","Feeling tense, on edge or worried.","Calm","Very anxious")}
+      <div class="q"><span class="lab">Overall symptoms today</span><p class="help">0 = none, 5 = very bothersome.</p>${chips("overall",SCALE05,d.overall,"six")}</div>
+      <label class="field" style="margin-top:1rem"><span>Main symptom today</span><input data-main-sym value="${esc(d.mainSym||"")}" placeholder="e.g. hot flushes, fatigue, brain fog"></label>
+    </div>`;
+  } else if(W.step===2){
+    body=`<div>
+      <div class="q"><span class="lab">Glasses of water</span><p class="help">Goal: ${tg.water} glasses.</p>${stepper("water",0,40,1,"glasses",d.water,{start:0})}</div>
+      <div class="q"><span class="lab">Protein</span><p class="help">Your best estimate for the day. Goal: ${tg.protein} g.</p>${stepper("protein",0,500,5,"grams",d.protein,{start:0})}</div>
+      <div class="q"><span class="lab">Movement</span><p class="help">Walking, strength, yoga, anything that got you moving. Goal: ${tg.move} minutes.</p>${stepper("move",0,600,5,"minutes",d.move,{start:0})}
+        <div class="quick">${[15,30,45,60].map(m=>`<button type="button" data-a="setVal" data-f="move" data-v="${m}">${m} min</button>`).join("")}</div></div>
+      <div class="q"><span class="lab">Did you do a strength session?</span>${yn("strength",d.strength)}</div>
+      <div class="q"><span class="lab">Did you take your supplements?</span><p class="help">Only what your practitioner recommended.</p>${yn("supps",d.supps)}</div>
+    </div>`;
+  } else {
+    const h=habitsMet(d), l=symptomLoad(d);
+    const msg = h>=4?"A great day. Keep it up.":h>=2?"A solid effort. Small steps add up.":"Every day is a fresh start.";
+    body=`<div class="stack">
+      <div class="panel tint"><div class="row between"><div><div class="big-num">${h}<span class="muted" style="font-size:1.1rem"> of 5</span></div><span class="muted small">habits met</span></div>
+        <div style="text-align:right"><div class="big-num">${l}<span class="muted" style="font-size:1.1rem"> / 20</span></div><span class="muted small">symptom load (lower is better)</span></div></div>
+        <p style="margin-top:.7rem"><b>${msg}</b></p></div>
+      <label class="field"><span>Daily action — one small thing for me</span><input data-daily-action value="${esc(d.action||"")}" placeholder="e.g. 10-minute walk after lunch"></label>
+      <label class="check"><input type="checkbox" data-action-done ${d.actionDone?"checked":""}><span>I did my daily action</span></label>
+      <label class="field"><span>Notes for this day</span><textarea data-note placeholder="What might have triggered a flush? What went well? Anything to tell your practitioner?">${esc(d.notes||"")}</textarea></label>
+    </div>`;
+  }
+  const nav=`<div class="row" style="gap:.6rem">
+    ${W.step>0?`<button class="btn quiet" data-a="wBack">Back</button>`:`<button class="btn quiet" data-a="wCancel">Cancel</button>`}
+    <span class="grow"></span>
+    ${W.step<3?`<button class="btn primary" data-a="wNext">Next</button>`:`<button class="btn sun" data-a="wSave">Save check-in</button>`}
+  </div>`;
+  return `<div class="wrap stack-lg">${head}${body}${nav}</div>`;
+}
+function openCheckinInit(){ W={date:today(),step:0,data:S.entries[today()]?JSON.parse(JSON.stringify(S.entries[today()])):{flushes:0,water:0,protein:0,move:0},editing:!!S.entries[today()]}; }
+
+function finishSave(){
+  const d=W.data;
+  const clean={};
+  Object.keys(d).forEach(k=>{ if(has(d[k])) clean[k]=d[k]; });
+  S.entries[W.date]=clean; S.draft=null; save();
+  const date=W.date, h=habitsMet(clean), l=symptomLoad(clean); W=null;
+  route={tab:"today",sub:null}; render(); window.scrollTo(0,0);
+  toast(`Saved. ${h} of 5 habits met, symptom load ${l}.`);
+  return date;
+}
+
+/* ----- progress ----- */
+function line(vals, dates, o){
+  const w=320,h=o.h||140,pl=26,pr=8,pt=8,pb=20, min=o.min, max=o.max;
+  const x=i=>pl+(w-pl-pr)*(dates.length<2?0.5:i/(dates.length-1));
+  const y=v=>pt+(h-pt-pb)*(1-(v-min)/(max-min));
+  let grid="";
+  (o.ticks||[min,max]).forEach(tk=>{ grid+=`<line x1="${pl}" x2="${w-pr}" y1="${y(tk)}" y2="${y(tk)}" stroke="var(--line)"/><text x="${pl-5}" y="${y(tk)+3}" text-anchor="end">${tk}</text>`; });
+  let out="";
+  (o.series||[{vals,color:"var(--fig)"}]).forEach(s=>{
+    let d="",pen=false;
+    s.vals.forEach((v,i)=>{ if(v==null){pen=false;return;} d+=(pen?"L":"M")+x(i).toFixed(1)+" "+y(v).toFixed(1)+" "; pen=true; });
+    out+=`<path d="${d}" fill="none" stroke="${s.color}" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round"/>`;
+    s.vals.forEach((v,i)=>{ if(v!=null) out+=`<circle cx="${x(i).toFixed(1)}" cy="${y(v).toFixed(1)}" r="${dates.length>20?1.8:3}" fill="${s.color}"/>`; });
+  });
+  const step=Math.max(1,Math.ceil(dates.length/6));
+  let xl=""; dates.forEach((dt,i)=>{ if(i%step===0||i===dates.length-1) xl+=`<text x="${x(i)}" y="${h-5}" text-anchor="${i===0&&dates.length>1?"start":i===dates.length-1&&dates.length>1?"end":"middle"}">${esc(short(dt))}</text>`; });
+  return `<svg class="chart" viewBox="0 0 ${w} ${h}" role="img" aria-label="${esc(o.label)}">${grid}${out}${xl}</svg>`;
+}
+function bars(vals, dates, o){
+  const w=320,h=o.h||130,pl=26,pr=8,pt=8,pb=20, max=o.max;
+  const n=dates.length, bw=(w-pl-pr)/n, y=v=>pt+(h-pt-pb)*(1-v/max);
+  let grid=`<line x1="${pl}" x2="${w-pr}" y1="${y(0)}" y2="${y(0)}" stroke="var(--line)"/><text x="${pl-5}" y="${y(0)+3}" text-anchor="end">0</text><text x="${pl-5}" y="${y(max)+3}" text-anchor="end">${max}</text>`;
+  let out="";
+  vals.forEach((v,i)=>{ if(v!=null&&v>0){ const hh=Math.max(2,y(0)-y(Math.min(v,max))); out+=`<rect x="${(pl+i*bw+bw*0.15).toFixed(1)}" y="${(y(0)-hh).toFixed(1)}" width="${(bw*0.7).toFixed(1)}" height="${hh.toFixed(1)}" rx="3" fill="${o.color||"var(--sage)"}"/>`; }});
+  let tl="";
+  if(o.target!=null) tl=`<line x1="${pl}" x2="${w-pr}" y1="${y(o.target)}" y2="${y(o.target)}" stroke="var(--sun)" stroke-width="2" stroke-dasharray="5 4"/><text x="${w-pr}" y="${y(o.target)-4}" text-anchor="end">goal ${o.target}</text>`;
+  const step=Math.max(1,Math.ceil(n/6));
+  let xl=""; dates.forEach((dt,i)=>{ if(i%step===0||i===n-1) xl+=`<text x="${(pl+i*bw+bw/2).toFixed(1)}" y="${h-5}" text-anchor="${i===0?"start":i===n-1?"end":"middle"}">${esc(short(dt))}</text>`; });
+  return `<svg class="chart" viewBox="0 0 ${w} ${h}" role="img" aria-label="${esc(o.label)}">${grid}${tl}${out}${xl}</svg>`;
+}
+function trend(cur, prev, higherBetter){
+  if(cur==null||prev==null) return `<span class="dot"></span>Not enough days yet to compare`;
+  const d=cur-prev;
+  if(Math.abs(d)<0.05) return `<span class="dot"></span>Steady compared with the days before`;
+  const better = higherBetter ? d>0 : d<0;
+  return `<span class="dot ${better?"good":"watch"}"></span>${better?"Improving":"Worth keeping an eye on"} (${d>0?"up":"down"} ${f1(Math.abs(d))} from the days before)`;
+}
+function viewProgress(){
+  const n=range, dates=datesBack(n), prevDates=datesBack(n, addDays(today(),-n));
+  const count=dates.filter(d=>S.entries[d]).length;
+  if(!Object.keys(S.entries).length){
+    return `<div class="wrap stack-lg"><header class="top"><h1>Your progress</h1></header>
+      <div class="panel tint stack-sm"><h3>Nothing to show yet</h3><p>After your first check-in, your patterns will appear here: sleep, symptoms, energy, mood and habits.</p><button class="btn primary" data-a="openCheckin" data-date="${today()}">Start a check-in</button></div></div>`;
+  }
+  const M=[
+    ["Average sleep",e=>has(e.sleep)?e.sleep:null,true,"h"],
+    ["Energy (1 to 5)",e=>has(e.energy)?e.energy:null,true,""],
+    ["Mood (1 to 5)",e=>has(e.mood)?e.mood:null,true,""],
+    ["Hot flushes per day",e=>has(e.flushes)?e.flushes:null,false,""],
+    ["Symptom load (0 to 20)",e=>symptomLoad(e),false,""],
+    ["Habits met (of 5)",e=>habitsMet(e),true,""]
+  ];
+  const mrows=M.map(([lab,fn,hb,u])=>{
+    const c=avg(series(dates,fn)), p=avg(series(prevDates,fn));
+    return `<div class="metric"><span>${lab}</span><b>${f1(c)}${c!=null&&u?" "+u:""}</b><span class="trend">${trend(c,p,hb)}</span></div>`;
+  }).join("");
+  // calendar (last 28 days, Monday-first)
+  const last28=datesBack(28); const first=last28[0]; const lead=wkday(first);
+  let cal=DAYS.map(d=>`<div class="dh">${d[0]}</div>`).join("");
+  for(let i=0;i<lead;i++) cal+="<span></span>";
+  last28.forEach(d=>{ const e=S.entries[d]; const h=e?habitsMet(e):null;
+    cal+=`<button data-a="openDay" data-date="${d}" class="${h==null?"":"c"+h} ${d===today()?"today":""}" aria-label="${esc(long(d))}${h==null?", no entry":", "+h+" of 5 habits"}">${pd(d).getDate()}</button>`; });
+  const seg=[0,1,2,3,4,5].map(i=>`<i style="background:var(--s${i})"></i>`).join("");
+  const tg=T();
+  const eSeries=[{vals:series(dates,e=>has(e.energy)?e.energy:null),color:"var(--fig)"},{vals:series(dates,e=>has(e.mood)?e.mood:null),color:"var(--sun)"}];
+  return `<div class="wrap stack-lg">
+    <header class="top"><h1>Your progress</h1><p class="sub">${count} of the last ${n} days logged.</p></header>
+    <div class="pill-row no-print" role="group" aria-label="Time range">${[[7,"7 days"],[30,"30 days"],[90,"90 days"]].map(([v,l])=>`<button data-a="range" data-v="${v}" aria-pressed="${range===v}">${l}</button>`).join("")}</div>
+    <section class="panel"><h3 style="margin-bottom:.3rem">The numbers</h3>${mrows}</section>
+    <section class="panel"><h3>Symptom load</h3><p class="muted small" style="margin-bottom:.4rem">Brain fog, joint aches, anxiety and hot flushes added together. Lower is better.</p>${line(null,dates,{min:0,max:20,ticks:[0,10,20],label:"Symptom load over time",series:[{vals:series(dates,e=>symptomLoad(e)),color:"var(--fig)"}]})}</section>
+    <section class="panel"><h3>Energy and mood</h3><p class="small" style="margin:.2rem 0 .4rem"><span class="dot" style="background:var(--fig)"></span>Energy <span class="dot" style="background:var(--sun);margin-left:.8rem"></span>Mood</p>${line(null,dates,{min:1,max:5,ticks:[1,3,5],label:"Energy and mood over time",series:eSeries})}</section>
+    <section class="panel"><h3>Sleep</h3>${bars(series(dates,e=>has(e.sleep)?e.sleep:null),dates,{max:10,target:tg.sleep,color:"var(--s4)",label:"Hours of sleep"})}</section>
+    <section class="panel"><h3>Hot flushes</h3>${bars(series(dates,e=>has(e.flushes)?e.flushes:null),dates,{max:Math.max(8,...series(dates,e=>num(e.flushes))),color:"var(--s3)",label:"Hot flushes per day"})}</section>
+    <section class="panel"><h3 style="margin-bottom:.6rem">Habit calendar</h3><div class="cal">${cal}</div>
+      <div class="scale"><span>0 habits</span>${seg}<span>5 habits</span></div><p class="muted small" style="margin-top:.4rem">Tap a day to see it.</p></section>
+    <section class="panel tint stack-sm no-print"><h3>Bring it to an appointment</h3><p class="muted">A short summary of the last four weeks, ready to paste into a message or read out.</p>
+      <div class="row" style="flex-wrap:wrap"><button class="btn small" data-a="copySummary">Copy summary</button><button class="btn small quiet" data-a="print">Print or save PDF</button></div></section>
+  </div>`;
+}
+function summaryText(){
+  const nm=S.settings.name||"My";
+  let out=`${nm==="My"?"My":nm+"'s"} menopause tracking summary, ${long(today())}\n`;
+  const weeks=[];
+  for(let w=0;w<4;w++){ const end=addDays(today(),-7*w), ds_=datesBack(7,end); weeks.push({ds:ds_,end}); }
+  weeks.forEach((wk,i)=>{
+    const g=fn=>avg(series(wk.ds,fn)); const c=wk.ds.filter(d=>S.entries[d]).length;
+    out+=`\n${i===0?"Last 7 days":short(wk.ds[0])+" to "+short(wk.ds[6])} (${c} days logged): sleep ${f1(g(e=>has(e.sleep)?e.sleep:null))} h, energy ${f1(g(e=>has(e.energy)?e.energy:null))}/5, mood ${f1(g(e=>has(e.mood)?e.mood:null))}/5, hot flushes ${f1(g(e=>has(e.flushes)?e.flushes:null))}/day, symptom load ${f1(g(e=>symptomLoad(e)))}/20, habits met ${f1(g(e=>habitsMet(e)))}/5`;
+  });
+  return out+"\n\nSelf-tracked with the Thrive Through Menopause planner. Not a medical record.";
+}
+async function copyText(text){
+  try{ await navigator.clipboard.writeText(text); toast("Copied"); return; }catch(e){}
+  sheet(`<h2>Copy this text</h2><p class="muted" style="margin:.4rem 0 .8rem">Press and hold in the box, choose Select all, then Copy.</p><textarea readonly id="cp" style="min-height:12rem">${esc(text)}</textarea><button class="btn block" style="margin-top:1rem" data-a="closeSheet">Done</button>`);
+  const t=document.getElementById("cp"); if(t){ t.focus(); t.select(); }
+}
+function dayDetail(d){
+  const e=S.entries[d];
+  if(!e){ sheet(`<h2>${esc(long(d))}</h2><p class="muted" style="margin:.5rem 0 1rem">Nothing logged for this day.</p><button class="btn primary block" data-a="openCheckin" data-date="${d}">Log this day</button>`); return; }
+  const r=(l,v)=>has(v)?`<li class="row between"><span class="muted">${l}</span><b>${esc(v)}</b></li>`:"";
+  sheet(`<h2>${esc(long(d))}</h2>
+    <p style="margin:.4rem 0"><span class="tag">${habitsMet(e)} of 5 habits</span> <span class="tag warn">Symptom load ${symptomLoad(e)}</span></p>
+    <ul class="list">${r("Sleep",has(e.sleep)?e.sleep+" h":"")}${r("Sleep quality",has(e.sq)?e.sq+" of 5":"")}${r("Energy",has(e.energy)?e.energy+" of 5":"")}${r("Mood",has(e.mood)?e.mood+" of 5":"")}${r("Hot flushes",e.flushes)}${r("Night sweats",e.sweats)}${r("Brain fog",has(e.fog)?e.fog+" of 5":"")}${r("Joint aches",has(e.joint)?e.joint+" of 5":"")}${r("Anxiety",has(e.anxiety)?e.anxiety+" of 5":"")}${r("Water",has(e.water)?e.water+" glasses":"")}${r("Protein",has(e.protein)?e.protein+" g":"")}${r("Movement",has(e.move)?e.move+" min":"")}${r("Strength session",e.strength)}${r("Supplements",e.supps)}${r("Stress",has(e.stress)?e.stress+" of 5":"")}${r("Overall symptoms",has(e.overall)?e.overall+" of 5":"")}${r("Main symptom",e.mainSym)}${r("Daily action",e.action)}${r("Action done",e.actionDone?"Yes":"")}</ul>
+    ${e.notes?`<p style="margin:.6rem 0"><b>Notes</b><br>${esc(e.notes)}</p>`:""}
+    <div class="stack-sm" style="margin-top:1rem"><button class="btn primary block" data-a="openCheckin" data-date="${d}">Edit this day</button><button class="btn quiet block" data-a="closeSheet">Close</button></div>`);
+}
+
+/* ----- plan ----- */
+const FOCUS=["Strength","Cardio","Walk","Mobility or yoga","Balance","Pelvic floor","Rest"];
+function weekPlan(w){ w=Math.max(1,w); if(!S.weeklyPlans[w]) S.weeklyPlans[w]={priorities:["","",""],days:{}}; if(!S.weeklyPlans[w].priorities) S.weeklyPlans[w].priorities=["","",""]; if(!S.weeklyPlans[w].days) S.weeklyPlans[w].days={}; return S.weeklyPlans[w]; }
+function viewPlan(){
+  const tabs=[["week","Weekly Planner"],["move","Movement"],["meals","Meals"],["shop","Shopping"]];
+  let body="";
+  if(planTab==="week"){
+    const wk=Math.max(1,weekNo(today())), p=weekPlan(wk), ws=addDays(S.settings.start,(wk-1)*7), we=addDays(ws,6);
+    body=`<div class="panel tint"><b>Week ${wk}</b><br><span class="muted small">${esc(short(ws))} to ${esc(short(we))}</span></div>
+      <section class="stack-sm"><h2>Top 3 priorities</h2>${[0,1,2].map(i=>`<label class="field"><span>Priority ${i+1}</span><input data-week-priority="${i}" value="${esc(p.priorities[i]||"")}" placeholder="What matters most this week?"></label>`).join("")}</section>
+      <section class="stack-sm"><h2>Your week</h2>${DAYS.map((day,i)=>{const d=addDays(ws,i),x=p.days[i]||{},meal=S.planMeals[i]||{},mv=S.planMove[i]||{};return `<div class="week-day"><div class="row between"><div><b>${day}</b><br><span class="muted small">${esc(short(d))}</span></div><label class="check"><input type="checkbox" data-week-done="${i}" ${x.done?"checked":""}><span class="small">Done</span></label></div><p class="small" style="margin-top:.45rem"><b>Meals/wellbeing:</b> ${esc(x.action||[meal.b,meal.l,meal.d].filter(Boolean).join(" • ")||"Not planned")}</p><p class="small"><b>Movement:</b> ${mv.focus?esc(mv.focus+(mv.min?", "+mv.min+" min":"")):"Not planned"}</p><p class="small"><b>Appointment:</b> ${esc(x.appointment||"None")}</p><button class="linkbtn" data-a="editWeekDay" data-i="${i}" style="margin-top:.3rem">Edit day</button></div>`;}).join("")}</section>`;
+  } else if(planTab==="move"){
+    const planned=DAYS.map((_,i)=>S.planMove[i]||{});
+    const mins=planned.reduce((a,p)=>a+num(p.min),0), str=planned.filter(p=>p.focus==="Strength").length, tgt=T().strength;
+    const empty=!planned.some(p=>p.focus);
+    body=`<p class="muted">Tap a day to choose what you plan to do. Tick it off on the Today screen.</p><div class="panel tint"><b>${mins} minutes planned</b><br><span class="muted small">${str} of ${tgt} strength sessions${str>=tgt?". On track.":". Add another when you can."}</span></div>${empty?`<button class="btn block" data-a="starterWeek">Fill in a gentle starter week</button>`:""}<ul class="list panel" style="padding:.2rem 1.1rem">${DAYS.map((d,i)=>{const p=planned[i];return `<li><button class="item-btn" data-a="editMove" data-i="${i}"><span><b>${d}</b><br><span class="muted small">${p.focus?esc(p.focus)+(p.min?", "+p.min+" min":"")+(p.note?". "+esc(p.note):""):"Nothing planned yet"}</span></span>${IC.chev}</button></li>`;}).join("")}</ul>`;
+  } else if(planTab==="meals"){
+    body=`<p class="muted">Plan your own week here, or browse the full 30-day Australian meal guide.</p><section class="panel tint stack-sm"><span class="tag">Included in the app</span><h3>30-Day Australian Meal Guide</h3><p class="muted small">Breakfast, lunch, dinner and optional snack ideas, plus swaps and notes.</p><button class="btn primary block" data-a="sub" data-v="mealguide">Open the 30-day meal guide</button></section><ul class="list panel" style="padding:.2rem 1.1rem">${DAYS.map((d,i)=>{const m=S.planMeals[i]||{};const filled=[m.b,m.l,m.d,m.s].filter(Boolean).length;return `<li><button class="item-btn" data-a="editMeals" data-i="${i}"><span><b>${d}</b><br><span class="muted small">${filled?[m.b,m.l,m.d].filter(Boolean).map(esc).join(", "):"No meals planned yet"}</span></span>${IC.chev}</button></li>`;}).join("")}</ul>`;
+  } else {
+    const open=S.shopping.filter(x=>!x.done).length;
+    body=`<form data-form="addShop" class="row"><label class="grow field"><span class="hidden">New item</span><input name="item" placeholder="Add an item, e.g. salmon" autocomplete="off" required></label><button class="btn primary" type="submit">Add</button></form>${S.shopping.length?`<div class="panel"><div class="sect-title"><h3>${open} still to buy</h3>${S.shopping.some(x=>x.done)?`<button class="linkbtn" data-a="clearShop">Clear ticked</button>`:""}</div><ul class="list">${S.shopping.map((x,i)=>`<li><label class="check"><input type="checkbox" data-a="toggleShop" data-i="${i}" ${x.done?"checked":""}><span style="${x.done?"text-decoration:line-through;color:var(--muted)":""}">${esc(x.t)}</span></label></li>`).join("")}</ul></div>`:`<div class="panel tint"><p>Your shopping list is empty. Add the things you need for your meal plan.</p></div>`}`;
+  }
+  return `<div class="wrap stack-lg"><header class="top"><h1>Plan your week</h1><p class="sub">The Weekly Planner from your Excel workbook, adapted for mobile.</p></header><div class="pill-row" role="group">${tabs.map(([k,l])=>`<button data-a="planTab" data-v="${k}" aria-pressed="${planTab===k}">${l}</button>`).join("")}</div>${body}</div>`;
+}
+
+/* ----- workbook screens ----- */
+function viewStart(){
+  const goals=["Understand your symptoms and spot your own patterns and triggers.","Build simple daily habits for sleep, nutrition, movement and stress that fit your real life.","Feel more energised, steady and confident in your body.","Walk into appointments prepared, with clear notes and good questions.","Feel supported, and celebrate your wins along the way."];
+  return `<div class="wrap stack-lg">${subHead("Start Here")}<section class="panel tint stack-sm"><h2>Thrive Through Menopause Planner</h2><p>A private space to notice how you are doing, spot your patterns and feel more in control.</p></section><section class="panel stack-sm"><h2>A welcome from Kirsten</h2><p>Welcome, and well done for taking this step. Menopause can feel confusing, but you don't have to work it out alone. This planner is your private space to notice what is happening in your body and mind, try small changes, and see what really helps. There are no perfect days here, only information and progress. Start small, be kind to yourself, and bring what you learn to your appointments.</p><p><b>Kirsten</b></p></section><section class="stack-sm"><h2>What's inside</h2><div class="nav-cards">${[["journey","My Thrive Journey","Goals, intentions and what you want to improve"],["plan","Weekly Planner","Priorities, meals, movement and appointments"],["checkin","Daily Check-In","Sleep, mood, energy, stress and daily action"],["symptoms","Symptom Tracker","Rate common menopause symptoms over time"],["habits","Habit Tracker","Ten daily habits across nutrition, movement and self-care"],["progress","Progress","See patterns in sleep, energy, mood and symptoms"],["reflection","Weekly Reflection","Wins, challenges and your next focus"],["course","Course Tracker","Modules, lessons, worksheets and completion"],["mealguide","30-Day Meal Guide","One month of Australian meal suggestions"]].map(([k,t,s])=>`<button class="nav-card" data-a="workbookGo" data-v="${k}"><b>${t}</b><span class="muted small">${s}</span></button>`).join("")}</div></section><section class="panel"><h2>Programme goals</h2><ul>${goals.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></section><section class="panel stack-sm"><h2>How to use this planner</h2><p>1. Set your details and goals, then complete My Thrive Journey.</p><p>2. Plan your week and check the suggested Thrive lessons.</p><p>3. Each day, complete the Daily Check-In, Habit Tracker and any relevant symptoms.</p><p>4. Once a week, review Progress and complete your Weekly Reflection.</p><p>5. Work through the Course Tracker and use the 30-Day Meal Guide as flexible meal inspiration.</p></section><p class="muted small">This planner is an educational self-tracking tool. It does not diagnose or treat, and it is not a substitute for advice from your GP or health practitioner.</p></div>`;
+}
+function viewJourney(){
+  const r=S.journey.ratings, it=S.journey.intentions;
+  const opt=v=>`<option value="">–</option>${[1,2,3,4,5].map(n=>`<option value="${n}" ${+v===n?"selected":""}>${n}</option>`).join("")}`;
+  return `<div class="wrap stack-lg">${subHead("My Thrive Journey",`<button class="btn small primary" data-a="editGoal" data-i="-1">Add goal</button>`)}<p class="muted">Your goals, what you want to improve, and what thriving means to you. Revisit it whenever you like.</p><section class="stack-sm"><h2>My goals</h2>${S.goals.length?`<ul class="list panel" style="padding:.2rem 1.1rem">${S.goals.map((g,i)=>`<li><button class="item-btn" data-a="editGoal" data-i="${i}"><span><b>${esc(g.t)}</b><br><span class="muted small">${esc(g.why||"")}</span></span><span class="tag ${g.status==="Achieved"?"":"warn"}">${esc(g.status||"In progress")}</span></button></li>`).join("")}</ul>`:`<div class="panel tint"><p>Add one to five goals that matter to you.</p></div>`}</section><section class="panel"><h2>What I want to improve</h2><p class="muted small">1 = really struggling, 5 = thriving. Mark up to three areas as your focus.</p>${JOURNEY_AREAS.map(a=>{const x=r[a]||{};return `<div class="tracker-row"><div><b>${esc(a)}</b><div class="row" style="margin-top:.35rem"><label class="small">Start <select data-journey-rating="start" data-area="${esc(a)}">${opt(x.start)}</select></label><label class="small">Now <select data-journey-rating="current" data-area="${esc(a)}">${opt(x.current)}</select></label></div></div><label class="check"><input type="checkbox" data-journey-focus="${esc(a)}" ${x.focus?"checked":""}><span>My focus</span></label></div>`;}).join("")}</section><section class="stack-sm"><h2>My intentions</h2>${[["phrase","My word or phrase for this season"],["letgo","What I'm ready to let go of"],["start","What I'm excited to start"],["support","Who supports me"],["thriving","What thriving looks like for me"],["daily","One thing I will do just for me each day"]].map(([k,l])=>`<label class="field"><span>${l}</span><textarea data-journey-intent="${k}">${esc(it[k]||"")}</textarea></label>`).join("")}</section></div>`;
+}
+function viewSymptoms(){
+  const o=S.symptoms[symptomDate]||{}, total=symptomTotal(o), recent=datesBack(7,symptomDate).reverse();
+  const opts=v=>`<option value="">–</option>${[[0,"0 None"],[1,"1 Mild"],[2,"2 Moderate"],[3,"3 Severe"]].map(([n,l])=>`<option value="${n}" ${+v===n?"selected":""}>${l}</option>`).join("")}`;
+  return `<div class="wrap stack-lg">${subHead("Symptom Tracker")}<p class="muted">Rate each symptom: 0 = none, 1 = mild, 2 = moderate, 3 = severe.</p><label class="field"><span>Date</span><input type="date" data-sym-date value="${symptomDate}" max="${today()}"></label><div class="panel tint row between"><div><b>Symptom total</b><br><span class="muted small">For pattern spotting only</span></div><span class="big-num">${total}<span class="muted" style="font-size:1rem"> / 45</span></span></div><section class="panel">${SYMPTOM_FIELDS.map(([k,l])=>`<div class="tracker-row"><span>${esc(l)}</span><select data-sym-field="${k}">${opts(o[k])}</select></div>`).join("")}</section><section><h2>Recent days</h2><ul class="list panel" style="padding:.2rem 1.1rem">${recent.map(d=>`<li><button class="item-btn" data-a="symDate" data-v="${d}"><span><b>${esc(short(d))}</b><br><span class="muted small">${S.symptoms[d]?symptomTotal(S.symptoms[d])+" total":"No symptoms logged"}</span></span>${IC.chev}</button></li>`).join("")}</ul></section><p class="muted small">Please speak with your GP or health practitioner about new, severe or worrying symptoms. Seek prompt medical care for chest pain or sudden severe symptoms.</p></div>`;
+}
+function viewHabits(){
+  const o=S.habits[habitDate]||{}, c=habitCount(o), recent=datesBack(7,habitDate).reverse();
+  return `<div class="wrap stack-lg">${subHead("Habit Tracker")}<p class="muted">Tick the habits you did that day. You can rename the habit labels below.</p><label class="field"><span>Date</span><input type="date" data-habit-date value="${habitDate}" max="${today()}"></label><div class="panel tint row between"><div><b>Habits done</b><br><span class="muted small">${Math.round(c/10*100)}% of today's tracker</span></div><span class="big-num">${c}<span class="muted" style="font-size:1rem"> / 10</span></span></div><section class="panel">${S.habitNames.map((l,i)=>`<label class="check" style="border-top:${i?'1px solid var(--line)':'0'};padding:.7rem 0"><input type="checkbox" data-habit="${i}" ${o[i]?"checked":""}><span>${esc(l)}</span></label>`).join("")}</section><details class="help-box"><summary>Rename my habit labels</summary><div class="stack-sm" style="padding:.7rem 0">${S.habitNames.map((l,i)=>`<label class="field"><span>Habit ${i+1}</span><input data-habit-name="${i}" value="${esc(l)}"></label>`).join("")}</div></details><section><h2>Recent days</h2><ul class="list panel" style="padding:.2rem 1.1rem">${recent.map(d=>`<li><button class="item-btn" data-a="habitDate" data-v="${d}"><span><b>${esc(short(d))}</b><br><span class="muted small">${S.habits[d]?habitCount(S.habits[d])+" of 10 habits":"No habits logged"}</span></span>${IC.chev}</button></li>`).join("")}</ul></section></div>`;
+}
+function viewReflection(){
+  const current=Math.max(1,weekNo(today())); if(!reflectionWeek||reflectionWeek<1) reflectionWeek=current; const w=reflectionWeek, r=S.reviews[w]||{}, start=addDays(S.settings.start,(w-1)*7), dates=datesBack(7,addDays(start,6)), logged=dates.filter(d=>S.entries[d]).length;
+  const av=fn=>f1(avg(series(dates,fn))), hc=avg(dates.map(d=>S.habits[d]?habitCount(S.habits[d])/10:null));
+  return `<div class="wrap stack-lg">${subHead("Weekly Reflection")}<div class="row between"><button class="btn small quiet" data-a="reflectWeek" data-d="-1" ${w<=1?"disabled":""}>Previous</button><div style="text-align:center"><b>Week ${w}</b><br><span class="muted small">${esc(short(start))}</span></div><button class="btn small quiet" data-a="reflectWeek" data-d="1">Next</button></div><div class="mini-grid"><div class="stat-card"><span class="muted small">Days logged</span><br><b>${logged}/7</b></div><div class="stat-card"><span class="muted small">Avg sleep</span><br><b>${av(e=>has(e.sleep)?e.sleep:null)} h</b></div><div class="stat-card"><span class="muted small">Avg mood</span><br><b>${av(e=>has(e.mood)?e.mood:null)}/5</b></div><div class="stat-card"><span class="muted small">Habit score</span><br><b>${hc==null?"–":Math.round(hc*100)+"%"}</b></div></div><section class="stack-sm">${[["wins","Wins this week"],["hard","Challenges"],["lessons","Lessons learned"],["changes","Changes I've noticed"],["next","Next week's focus"]].map(([k,l])=>`<label class="field"><span>${l}</span><textarea data-reflect="${k}">${esc(r[k]||"")}</textarea></label>`).join("")}<label class="field"><span>Overall (1-5)</span><select data-reflect="overall"><option value="">–</option>${[1,2,3,4,5].map(n=>`<option value="${n}" ${+r.overall===n?"selected":""}>${n}</option>`).join("")}</select></label></section></div>`;
+}
+function viewCourse(){
+  const done=COURSE_LESSONS.filter(l=>(S.course[l.key]||{}).status==="Complete").length, pct=Math.round(done/COURSE_LESSONS.length*100);
+  return `<div class="wrap stack-lg">${subHead("Course Tracker")}<div class="panel tint stack-sm"><div class="row between"><div><b>${done} of ${COURSE_LESSONS.length} lessons complete</b><br><span class="muted small">${pct}% of the course</span></div><span class="scorebox">${pct}%</span></div><div class="progressbar"><i style="width:${pct}%"></i></div><button class="btn small" data-a="sub" data-v="mealguide">Open 30-Day Meal Guide</button></div>${[1,2,3,4,5,6].map(m=>{const ls=COURSE_LESSONS.filter(l=>l.module===m), md=ls.filter(l=>(S.course[l.key]||{}).status==="Complete").length, mp=Math.round(md/ls.length*100);return `<section class="module-card"><div class="row between"><div><span class="tag">Module ${m}</span><h3 style="margin-top:.3rem">${esc(ls[0].moduleName)}</h3></div><span class="scorebox">${md}/4</span></div><div class="progressbar" style="margin:.55rem 0"><i style="width:${mp}%"></i></div>${ls.map(l=>{const c=S.course[l.key]||{}, st=c.status||"Not started";return `<div class="lesson-row"><button class="item-btn" data-a="editCourse" data-key="${l.key}"><span><b>${l.lesson}. ${esc(l.title)}</b><br><span class="muted small">Worksheet: ${esc(l.worksheet)} • Suggested week ${l.week}${c.notes?" • Notes saved":""}</span></span><span class="tag ${st==="Complete"?"":"warn"}">${esc(st)}</span></button></div>`;}).join("")}</section>`;}).join("")}</div>`;
+}
+function viewMealGuide(){
+  const done=MEAL_GUIDE_30.filter(r=>(S.mealGuide[r[0]]||{}).done).length;
+  return `<div class="wrap stack-lg">${subHead("30-Day Meal Guide")}<div class="panel tint stack-sm"><h2>30-Day Australian Meal Guide</h2><p>Practical meal inspiration for one month. Use it flexibly and swap foods to suit your preferences and individual needs.</p><div class="row between"><b>${done} of 30 followed</b><span class="scorebox">${Math.round(done/30*100)}%</span></div><div class="progressbar"><i style="width:${Math.round(done/30*100)}%"></i></div></div>${[1,2,3,4,5].map(w=>`<details class="help-box" ${w===1?"open":""}><summary>Week ${w}${w===5?" • Days 29–30":""}</summary><div style="padding:.7rem 0">${MEAL_GUIDE_30.filter(r=>r[1]===w).map(r=>{const m=S.mealGuide[r[0]]||{};return `<article class="meal-card"><div class="row between"><b>Day ${r[0]}</b><label class="check"><input type="checkbox" data-meal-done="${r[0]}" ${m.done?"checked":""}><span class="small">Followed</span></label></div><div class="meal-grid"><div><b>Breakfast</b>${esc(r[2])}</div><div><b>Lunch</b>${esc(r[3])}</div><div><b>Dinner</b>${esc(r[4])}</div><div><b>Optional snack</b>${esc(r[5])}</div></div>${m.swap||m.feel?`<p class="small" style="margin-top:.55rem">${m.swap?`<b>My swap/notes:</b> ${esc(m.swap)}<br>`:""}${m.feel?`<b>How I felt:</b> ${esc(m.feel)}`:""}</p>`:""}<button class="linkbtn" data-a="editMealGuide" data-day="${r[0]}">Add swap / notes / how I felt</button></article>`;}).join("")}</div></details>`).join("")}<section class="panel"><h2>Meal guide notes & easy swaps</h2><ul class="list">${MEAL_GUIDE_NOTES.map(([a,b])=>`<li><b>${esc(a)}</b><br><span class="muted small">${esc(b)}</span></li>`).join("")}</ul></section><p class="muted small">Individual nutrition needs vary. For medical conditions, allergies or special dietary requirements, seek personalised advice from an appropriate health professional.</p></div>`;
+}
+
+/* ----- more ----- */
+function viewMore(){
+  if(route.sub) return viewSub(route.sub);
+
+  const items=[
+    {type:"sub",key:"start",title:"Start Here",desc:"Welcome, programme goals and how to use the planner"},
+    {type:"sub",key:"journey",title:"My Thrive Journey",desc:"Goals, intentions and what you want to improve"},
+    {type:"go",key:"today",title:"Today Dashboard",desc:"Your daily overview, focus and next steps"},
+    {type:"go",key:"checkin",title:"Daily Check-In",desc:"Sleep, energy, mood, symptoms, habits and notes"},
+    {type:"go",key:"plan",title:"Weekly Planner",desc:"Movement, weekly meals and shopping list"},
+    {type:"sub",key:"symptoms",title:"Symptom Tracker",desc:"Full 15-symptom daily tracker"},
+    {type:"sub",key:"habits",title:"Habit Tracker",desc:"Ten daily habits with editable labels"},
+    {type:"go",key:"progress",title:"Progress Dashboard",desc:"See your patterns, trends and recent progress"},
+    {type:"sub",key:"reflection",title:"Weekly Reflection",desc:"Wins, challenges, lessons and next week's focus"},
+    {type:"sub",key:"goals",title:"Goals and Weekly Review",desc:"Set what matters and review your progress"},
+    {type:"sub",key:"course",title:"Course Tracker",desc:"Six modules, 24 lessons and worksheets"},
+    {type:"sub",key:"mealguide",title:"30-Day Meal Guide",desc:"Australian meal suggestions, swaps and reflections"},
+    {type:"sub",key:"supps",title:"Supplements",desc:"What you take and when"},
+    {type:"sub",key:"appts",title:"Appointments",desc:"Questions to ask and notes afterwards"},
+    {type:"sub",key:"backup",title:"Your Records File (Excel)",desc:"Save or restore your complete planner"},
+    {type:"sub",key:"settings",title:"Settings",desc:"Your name, targets and appearance"},
+    {type:"sub",key:"help",title:"Help and Guide",desc:"How everything works"}
+  ];
+
+  const btn=x=>x.type==="go"
+    ? `<button class="item-btn" data-a="go" data-tab="${x.key}"><span><b>${x.title}</b><br><span class="muted small">${x.desc}</span></span>${IC.chev}</button>`
+    : `<button class="item-btn" data-a="sub" data-v="${x.key}"><span><b>${x.title}</b><br><span class="muted small">${x.desc}</span></span>${IC.chev}</button>`;
+
+  return `<div class="wrap stack-lg">
+    <header class="top brand-row">${logoImg("logo-chip")}<div><h1>My Thrive Planner</h1><p class="sub">Everything in one place</p></div></header>
+    <section class="panel tint stack-sm"><span class="tag">Complete planner</span><h2>Thrive Through Menopause</h2><p class="muted">All of the planner sections from the Excel workbook, plus your original tracking tools, are together here.</p></section>
+    <ul class="list panel" style="padding:.2rem 1.1rem">${items.map(x=>`<li>${btn(x)}</li>`).join("")}</ul>
+    <p class="muted small">This planner is an educational self-tracking tool. It does not diagnose or treat, and it doesn't replace advice from your GP or health practitioner.</p>
+  </div>`;
+}
+const subHead=(t,extra)=>`<header class="stack-sm"><button class="linkbtn" data-a="sub" data-v="" style="display:inline-flex;align-items:center;gap:.3rem">${IC.back} More</button><div class="row between"><h1>${t}</h1>${extra||""}</div></header>`;
+
+function viewSub(k){
+  if(k==="start") return viewStart();
+  if(k==="journey") return viewJourney();
+  if(k==="symptoms") return viewSymptoms();
+  if(k==="habits") return viewHabits();
+  if(k==="reflection") return viewReflection();
+  if(k==="course") return viewCourse();
+  if(k==="mealguide") return viewMealGuide();
+  if(k==="settings"){
+    const s=S.settings,t=s.targets;
+    const tf=(f,l,min,max,step,u)=>`<div class="q"><span class="lab">${l}</span>${stepper("t_"+f,min,max,step,u,t[f],{start:t[f]})}</div>`;
+    return `<div class="wrap stack-lg">${subHead("Settings")}
+      <label class="field"><span>Your name</span><input data-set="name" value="${esc(s.name)}" autocomplete="given-name"></label>
+      <label class="field"><span>Programme</span><select data-set="programme">${["Thrive Essentials","Thrive Premium Support","Self-guided"].map(o=>`<option ${s.programme===o?"selected":""}>${o}</option>`).join("")}</select></label>
+      <label class="field"><span>Start date</span><input type="date" data-set="start" value="${s.start}"></label>
+      <section><h2>Daily targets</h2><p class="muted small" style="margin:.2rem 0">These are starting points. Adjust them with your practitioner.</p>
+        ${tf("sleep","Sleep",3,12,0.5,"hours")}${tf("water","Water",1,30,1,"glasses")}${tf("protein","Protein",20,300,5,"grams")}${tf("move","Movement",5,300,5,"minutes")}${tf("strength","Strength sessions per week",0,7,1,"per week")}</section>
+      <section class="stack-sm"><h2>Appearance</h2><div class="pill-row" role="group" aria-label="Theme">${[["auto","Match my phone"],["light","Light"],["dark","Dark"]].map(([v,l])=>`<button data-a="theme" data-v="${v}" aria-pressed="${s.theme===v}">${l}</button>`).join("")}</div>
+        <label class="check" style="margin-top:.5rem"><input type="checkbox" data-a="bigText" ${s.big?"checked":""}><span>Larger text</span></label></section></div>`;
+  }
+  if(k==="goals"){
+    const wk=weekNo(today()), rv=S.reviews[wk]||{};
+    return `<div class="wrap stack-lg">${subHead("Goals and review",`<button class="btn small primary" data-a="editGoal" data-i="-1">Add goal</button>`)}
+      ${S.goals.length?`<ul class="list panel" style="padding:.2rem 1.1rem">${S.goals.map((g,i)=>`<li><button class="item-btn" data-a="editGoal" data-i="${i}"><span><b>${esc(g.t)}</b><br><span class="muted small">${esc(g.why||"")}${g.date?" Target "+esc(short(g.date))+".":""}</span></span><span class="tag ${g.status==="Achieved"?"":"warn"}">${esc(g.status||"In progress")}</span></button></li>`).join("")}</ul>`
+        :`<div class="panel tint"><p>Set one to three goals that matter to you, like "sleep 7 hours on most nights".</p></div>`}
+      <section class="panel stack-sm"><h2>Review of week ${wk>0?wk:1}</h2><p class="muted small">Take a minute to reflect. There are no wrong answers.</p>
+        <label class="field"><span>Wins this week</span><textarea data-rev="wins">${esc(rv.wins||"")}</textarea></label>
+        <label class="field"><span>Challenges</span><textarea data-rev="hard">${esc(rv.hard||"")}</textarea></label>
+        <label class="field"><span>What I'll try next week</span><textarea data-rev="next">${esc(rv.next||"")}</textarea></label>
+        <div class="q" style="border:0"><span class="lab">Overall, how was this week?</span>${chips("rev_overall",FACES,rv.overall)}</div></section></div>`;
+  }
+  if(k==="supps"){
+    return `<div class="wrap stack-lg">${subHead("Supplements",`<button class="btn small primary" data-a="editSupp" data-i="-1">Add</button>`)}
+      <p class="muted small">Record only what your practitioner or GP has recommended or prescribed, and check with them before starting or changing anything.</p>
+      ${S.supps.length?`<ul class="list panel" style="padding:.2rem 1.1rem">${S.supps.map((s,i)=>`<li><button class="item-btn" data-a="editSupp" data-i="${i}"><span><b>${esc(s.name)}</b>${s.dose?", "+esc(s.dose):""}<br><span class="muted small">${esc(s.when||"")}${s.purpose?". "+esc(s.purpose):""}${s.review&&s.review<today()?" Review is due.":""}</span></span>${IC.chev}</button></li>`).join("")}</ul>`
+        :`<div class="panel tint"><p>Nothing added yet.</p></div>`}</div>`;
+  }
+  if(k==="appts"){
+    const list=S.appts.map((a,i)=>({...a,i})).sort((a,b)=>(b.date||"").localeCompare(a.date||""));
+    return `<div class="wrap stack-lg">${subHead("Appointments",`<button class="btn small primary" data-a="editAppt" data-i="-1">Add</button>`)}
+      <p class="muted small">Write your questions down before you go, and what you agreed afterwards.</p>
+      ${list.length?`<ul class="list panel" style="padding:.2rem 1.1rem">${list.map(a=>`<li><button class="item-btn" data-a="editAppt" data-i="${a.i}"><span><b>${esc(a.with||"Appointment")}</b>${a.date?", "+esc(short(a.date)):""}<br><span class="muted small">${esc(a.purpose||"")}</span></span>${IC.chev}</button></li>`).join("")}</ul>`
+        :`<div class="panel tint"><p>No appointments yet.</p></div>`}</div>`;
+  }
+  if(k==="backup"){
+    const n=Object.keys(S.entries).length;
+    const last=S.lastSave?`Last saved ${new Date(S.lastSave).toLocaleDateString(undefined,{day:"numeric",month:"long"})}, with ${S.savedCount} check-in${S.savedCount===1?"":"s"}.`:"You haven't saved a file yet.";
+    return `<div class="wrap stack-lg">${subHead("Your records file")}
+      <div class="panel tint"><p>Your check-ins live on this device. Save them to an Excel file to keep a copy on your computer or phone, look through them in Excel, or send the file to Kirsten.</p></div>
+      <section class="stack-sm"><h2>Save to Excel</h2><p class="muted">Creates one Excel file with all ${n} of your check-ins, plus your Thrive Journey, weekly planner, symptoms, habits, reflections, course progress, goals, plans, settings and 30-day Australian meal guide. It goes to your Downloads folder. On a phone, look in the Files app.</p>
+        <button class="btn primary block" data-a="saveXlsx">Save my records to Excel</button><p class="muted small">${last}</p></section>
+      <section class="stack-sm"><h2>Open an Excel file</h2><p class="muted">Bring your records back from a file you saved earlier, for example on a new phone. It also opens the Thrive Excel planner.</p>
+        <input type="file" id="fileIn" accept=".xlsx,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" class="hidden">
+        <button class="btn block" data-a="pickFile">Choose an Excel file</button></section>
+      <details class="help-box"><summary>Other options</summary><div class="stack" style="padding:.6rem 0">
+        <div class="stack-sm"><b>Text backup</b><p class="muted small">Copies your data as plain text, if Excel files aren't handy.</p><button class="btn quiet small" data-a="backupCopy">Copy text backup</button>
+        <textarea id="restoreBox" placeholder="Paste a text backup here to restore it"></textarea><button class="btn quiet small" data-a="restore">Restore from text</button></div>
+        <div class="stack-sm"><b>Try sample data</b><p class="muted small">Fills the app with four weeks of made-up entries so you can explore. This replaces your data.</p><button class="btn quiet small" data-a="sample">Load sample data</button></div>
+        <div class="stack-sm"><b>Start again</b><button class="btn danger small" data-a="erase">Erase everything on this device</button></div></div></details></div>`;
+  }
+  // help
+  return `<div class="wrap stack-lg">${subHead("Help and guide")}
+    <section class="stack-sm"><h2>Every day</h2><p>Open <b>Check-in</b> and answer four short steps: sleep and energy, symptoms, daily habits, then notes. Skip anything you like. Your ring on the Today screen fills as you meet your habits.</p></section>
+    <section class="stack-sm"><h2>What the scores mean</h2>
+      <details class="help-box"><summary>Habits met</summary><p>Up to five points a day: your sleep, water, protein and movement goals, plus taking your supplements.</p></details>
+      <details class="help-box"><summary>Symptom load</summary><p>Brain fog, joint aches and anxiety (each 0 to 5) plus hot flushes (up to 5), added together. It runs from 0 to 20, and lower is better.</p></details>
+      <details class="help-box"><summary>1 to 5 and 0 to 5 scales</summary><p>For sleep, energy and mood, 1 is very low and 5 is great. For brain fog, joint aches and anxiety, 0 is none and 5 is severe.</p></details></section>
+    <section class="stack-sm"><h2>Put it on your home screen</h2><p><b>iPhone:</b> open this page in Safari, tap the Share button, then Add to Home Screen.<br><b>Android:</b> open it in Chrome, tap the menu, then Add to Home screen.</p></section>
+    <section class="stack-sm"><h2>Your records</h2><p>Your check-ins are saved on this device. Use <b>More, then Your records file</b> to save them to an Excel file on your computer or phone. You can open that file in Excel, send it to Kirsten, or bring it back into the app later.</p></section>
+    <section class="stack-sm"><h2>Your privacy</h2><p>Everything you enter stays on this device. Nobody else can see it unless you save a file and send it to them yourself.</p></section>
+    <section class="stack-sm"><h2>Important</h2><p>This is an educational self-tracking tool. It doesn't diagnose or treat, and it isn't a substitute for advice from your GP or health practitioner. Please speak to a qualified professional about any new, severe or worrying symptoms.</p></section>
+    <button class="btn quiet block" data-a="replayIntro">Show the welcome tour again</button></div>`;
+}
+
+/* ---------- edit sheets ---------- */
+const FLD=(l,n,v,type)=>`<label class="field"><span>${l}</span><${type==="area"?`textarea name="${n}">${esc(v||"")}</textarea>`:`input name="${n}" ${type==="date"?'type="date"':""} value="${esc(v||"")}">`}</label>`;
+function editMove(i){
+  const p=S.planMove[i]||{};
+  sheet(`<h2>${DAYS[i]}</h2><form data-form="saveMove" data-i="${i}" class="stack" style="margin-top:1rem">
+    <label class="field"><span>What are you planning?</span><select name="focus"><option value="">Nothing planned</option>${FOCUS.map(f=>`<option ${p.focus===f?"selected":""}>${f}</option>`).join("")}</select></label>
+    <label class="field"><span>Minutes</span><input name="min" type="number" inputmode="numeric" min="0" max="600" value="${p.min||""}"></label>
+    ${FLD("Details (optional)","note",p.note)}
+    <div class="row"><button type="button" class="btn quiet" data-a="closeSheet">Cancel</button><span class="grow"></span><button class="btn primary" type="submit">Save</button></div></form>`);
+}
+function editMeals(i){
+  const m=S.planMeals[i]||{};
+  sheet(`<h2>${DAYS[i]} meals</h2><form data-form="saveMeals" data-i="${i}" class="stack" style="margin-top:1rem">
+    ${FLD("Breakfast","b",m.b)}${FLD("Lunch","l",m.l)}${FLD("Dinner","d",m.d)}${FLD("Snacks","s",m.s)}
+    <div class="row"><button type="button" class="btn quiet" data-a="closeSheet">Cancel</button><span class="grow"></span><button class="btn primary" type="submit">Save</button></div></form>`);
+}
+function editGoal(i){
+  const g=i>=0?S.goals[i]:{};
+  sheet(`<h2>${i>=0?"Edit goal":"New goal"}</h2><form data-form="saveGoal" data-i="${i}" class="stack" style="margin-top:1rem">
+    ${FLD("My goal","t",g.t)}${FLD("Why it matters to me","why",g.why,"area")}${FLD("Target date","date",g.date,"date")}
+    <label class="field"><span>Status</span><select name="status">${["Not started","In progress","Achieved","On hold"].map(s=>`<option ${(g.status||"In progress")===s?"selected":""}>${s}</option>`).join("")}</select></label>
+    <div class="row">${i>=0?`<button type="button" class="btn danger small" data-a="delGoal" data-i="${i}">Delete</button>`:""}<span class="grow"></span><button type="button" class="btn quiet" data-a="closeSheet">Cancel</button><button class="btn primary" type="submit">Save</button></div></form>`);
+}
+function editSupp(i){
+  const s=i>=0?S.supps[i]:{};
+  sheet(`<h2>${i>=0?"Edit supplement":"Add supplement"}</h2><form data-form="saveSupp" data-i="${i}" class="stack" style="margin-top:1rem">
+    ${FLD("Name","name",s.name)}${FLD("Dose","dose",s.dose)}
+    <label class="field"><span>When</span><select name="when">${["Morning","Midday","With meals","Afternoon","Evening","Bedtime","As needed"].map(w=>`<option ${s.when===w?"selected":""}>${w}</option>`).join("")}</select></label>
+    ${FLD("What it is for","purpose",s.purpose)}${FLD("Recommended by","by",s.by)}${FLD("Review date","review",s.review,"date")}
+    <div class="row">${i>=0?`<button type="button" class="btn danger small" data-a="delSupp" data-i="${i}">Delete</button>`:""}<span class="grow"></span><button type="button" class="btn quiet" data-a="closeSheet">Cancel</button><button class="btn primary" type="submit">Save</button></div></form>`);
+}
+function editAppt(i){
+  const a=i>=0?S.appts[i]:{};
+  sheet(`<h2>${i>=0?"Edit appointment":"Add appointment"}</h2><form data-form="saveAppt" data-i="${i}" class="stack" style="margin-top:1rem">
+    ${FLD("Date","date",a.date,"date")}${FLD("Who with","with",a.with)}${FLD("What it is about","purpose",a.purpose)}
+    ${FLD("Questions to ask","q",a.q,"area")}${FLD("What we agreed","out",a.out,"area")}
+    <div class="row">${i>=0?`<button type="button" class="btn danger small" data-a="delAppt" data-i="${i}">Delete</button>`:""}<span class="grow"></span><button type="button" class="btn quiet" data-a="closeSheet">Cancel</button><button class="btn primary" type="submit">Save</button></div></form>`);
+}
+
+
+function editWeekDay(i){
+  const wk=Math.max(1,weekNo(today())), p=weekPlan(wk), x=p.days[i]||{};
+  sheet(`<h2>${DAYS[i]} • Week ${wk}</h2><form data-form="saveWeekDay" data-i="${i}" class="stack" style="margin-top:1rem">${FLD("Meals and wellbeing actions","action",x.action,"area")}${FLD("Appointment / important date","appointment",x.appointment,"area")}<div class="row"><button type="button" class="btn quiet" data-a="closeSheet">Cancel</button><span class="grow"></span><button class="btn primary" type="submit">Save</button></div></form>`);
+}
+function editCourseLesson(key){
+  const l=COURSE_LESSONS.find(x=>x.key===key); if(!l) return; const c=S.course[key]||{};
+  sheet(`<h2>Module ${l.module}, Lesson ${l.lesson}</h2><p style="margin:.35rem 0"><b>${esc(l.title)}</b></p><p class="muted small">Worksheet: ${esc(l.worksheet)} • Suggested week ${l.week}</p><form data-form="saveCourse" data-key="${key}" class="stack" style="margin-top:1rem"><label class="field"><span>Status</span><select name="status">${["Not started","In progress","Complete"].map(s=>`<option ${s===(c.status||"Not started")?"selected":""}>${s}</option>`).join("")}</select></label>${FLD("Key takeaway / notes","notes",c.notes,"area")}${FLD("Date completed","date",c.date,"date")}<div class="row"><button type="button" class="btn quiet" data-a="closeSheet">Cancel</button><span class="grow"></span><button class="btn primary" type="submit">Save</button></div></form>`);
+}
+function editMealGuideDay(day){
+  const r=MEAL_GUIDE_30.find(x=>x[0]===day); if(!r) return; const m=S.mealGuide[day]||{};
+  sheet(`<h2>Meal Guide • Day ${day}</h2><div class="meal-grid"><div><b>Breakfast</b>${esc(r[2])}</div><div><b>Lunch</b>${esc(r[3])}</div><div><b>Dinner</b>${esc(r[4])}</div><div><b>Optional snack</b>${esc(r[5])}</div></div><form data-form="saveMealGuide" data-day="${day}" class="stack" style="margin-top:1rem">${FLD("My swap / notes","swap",m.swap,"area")}${FLD("How I felt","feel",m.feel,"area")}<label class="check"><input type="checkbox" name="done" ${m.done?"checked":""}><span>I followed this day (with or without swaps)</span></label><div class="row"><button type="button" class="btn quiet" data-a="closeSheet">Cancel</button><span class="grow"></span><button class="btn primary" type="submit">Save</button></div></form>`);
+}
+
+/* ---------- onboarding ---------- */
+let ob=0;
+function viewOnboarding(){
+  const s=S.settings,t=s.targets;
+  const dots=`<div class="steps" aria-hidden="true">${[0,1,2].map(i=>`<i class="${i<ob?"done":i===ob?"now":""}"></i>`).join("")}</div>`;
+  let b="";
+  if(ob===0) b=`<div class="stack-lg">${logoImg("logo-lg")}
+    <div class="stack-sm" style="text-align:center"><h1>Thrive Through Menopause</h1><p class="muted">A calm place to notice how you are doing, spot your patterns and feel more in control. From Kirsten the Naturopath.</p></div>
+    <ul class="list"><li><b>Two minutes a day.</b> Answer a few simple questions.</li><li><b>See what helps.</b> Watch sleep, symptoms and energy over time.</li><li><b>Private to you.</b> Your entries stay on this device.</li></ul>
+    <button class="btn primary block" data-a="obNext">Get started</button></div>`;
+  else if(ob===1) b=`<div class="stack-lg"><h1>A little about you</h1>
+    <label class="field"><span>What should we call you?</span><input data-set="name" value="${esc(s.name)}" autocomplete="given-name" placeholder="Your first name"></label>
+    <label class="field"><span>Which programme are you on?</span><select data-set="programme">${["Thrive Essentials","Thrive Premium Support","Self-guided"].map(o=>`<option ${s.programme===o?"selected":""}>${o}</option>`).join("")}</select></label>
+    <div class="row"><button class="btn quiet" data-a="obBack">Back</button><span class="grow"></span><button class="btn primary" data-a="obNext">Next</button></div></div>`;
+  else b=`<div class="stack-lg"><div class="stack-sm"><h1>Your daily goals</h1><p class="muted">These are gentle starting points. You can change them any time in Settings, ideally with your practitioner.</p></div>
+    <div><div class="q"><span class="lab">Sleep</span>${stepper("t_sleep",3,12,0.5,"hours",t.sleep,{start:t.sleep})}</div>
+    <div class="q"><span class="lab">Water</span>${stepper("t_water",1,30,1,"glasses",t.water,{start:t.water})}</div>
+    <div class="q"><span class="lab">Protein</span>${stepper("t_protein",20,300,5,"grams",t.protein,{start:t.protein})}</div>
+    <div class="q"><span class="lab">Movement</span>${stepper("t_move",5,300,5,"minutes",t.move,{start:t.move})}</div></div>
+    <div class="stack-sm"><button class="btn primary block" data-a="obDone">Start my journey</button><button class="btn quiet block" data-a="obSample">Explore with sample data first</button><button class="btn quiet block" data-a="obBack">Back</button></div></div>`;
+  return `<div class="overlay"><div class="wrap stack-lg">${dots}${b}</div></div>`;
+}
+
+/* ---------- sample data ---------- */
+function loadSample(){
+  let seed=7; const rnd=()=>{ seed=(seed*16807)%2147483647; return seed/2147483647; };
+  const ri=(a,b)=>Math.floor(a+rnd()*(b-a+1));
+  const fresh=DEF(); fresh.setup=true;
+  fresh.settings=Object.assign(fresh.settings,{name:S.settings.name||"Sam",programme:S.settings.programme,theme:S.settings.theme,big:S.settings.big,start:addDays(today(),-28),targets:S.settings.targets});
+  for(let i=28;i>=1;i--){
+    const d=addDays(today(),-i), p=(28-i)/28;
+    fresh.entries[d]={ sleep:Math.round((5.6+p*1.8+rnd()*0.9)*2)/2, sq:Math.min(5,ri(2,3)+Math.round(p*1.6)), energy:Math.min(5,ri(2,3)+Math.round(p*1.5)), mood:Math.min(5,ri(2,4)+Math.round(p*1)),
+      flushes:Math.max(0,ri(3,8)-Math.round(p*4)), sweats:rnd()>0.35+p*0.4?"Yes":"No", fog:Math.max(0,ri(1,4)-Math.round(p*2)), joint:Math.max(0,ri(1,3)-Math.round(p*1)), anxiety:Math.max(0,ri(1,4)-Math.round(p*2)),
+      water:ri(4,9), protein:ri(55,105), move:ri(0,3)*15+15, strength:rnd()>0.6?"Yes":"No", supps:rnd()>0.2?"Yes":"No", notes:i%9===0?"Felt calmer after an evening walk.":undefined };
+  }
+  fresh.planMove={0:{focus:"Strength",min:40},1:{focus:"Walk",min:30},2:{focus:"Strength",min:40},3:{focus:"Mobility or yoga",min:30},4:{focus:"Strength",min:40},5:{focus:"Cardio",min:45},6:{focus:"Rest"}};
+  S=fresh; save();
+}
+
+/* =====================================================================
+   RENDER + EVENTS
+   ===================================================================== */
+function render(){
+  const app=document.getElementById("app");
+  document.documentElement.setAttribute("data-theme",S.settings.theme==="auto"?"":S.settings.theme);
+  if(S.settings.theme==="auto") document.documentElement.removeAttribute("data-theme");
+  document.documentElement.classList.toggle("big",!!S.settings.big);
+  let html="";
+  if(route.tab==="today") html=viewToday();
+  else if(route.tab==="checkin") html=viewCheckin();
+  else if(route.tab==="progress") html=viewProgress();
+  else if(route.tab==="plan") html=viewPlan();
+  else html=viewMore();
+  const tabs=[["today","Today",IC.today],["progress","Progress",IC.prog],["checkin","Check-in",IC.check],["plan","Plan",IC.plan],["more","More",IC.more]];
+  // order: Today, Progress, Check-in (middle), Plan, More
+  const bar=`<div class="tabbar"><nav aria-label="Main">${tabs.map(([k,l,ic])=>`<button class="tab ${k==="checkin"?"mid":""}" data-a="go" data-tab="${k}" ${route.tab===k?'aria-current="page"':""}>${ic}<span>${l}</span></button>`).join("")}</nav></div>`;
+  app.innerHTML=(S.setup?html+bar:"")+(S.setup?"":viewOnboarding());
+}
+
+function stepValue(btn){
+  const f=btn.dataset.f, min=+btn.dataset.min, max=+btn.dataset.max, st=+btn.dataset.step, d=+btn.dataset.d, start=+btn.dataset.start;
+  let cur=getField(f);
+  let v = has(cur) ? +cur + d*st : (d>0 ? (start>min? start : min+ (min===0&&f!=="flushes"?st:0)) : min);
+  if(!has(cur) && d>0) v = start>min ? start : min+st;
+  v=Math.round(Math.min(max,Math.max(min,v))*100)/100;
+  setField(f,v);
+}
+function getField(f){
+  if(f.startsWith("t_")) return S.settings.targets[f.slice(2)];
+  return W? W.data[f] : undefined;
+}
+function setField(f,v){
+  if(f.startsWith("t_")){ S.settings.targets[f.slice(2)]=v; save(); }
+  else if(W){ W.data[f]=v; draftSave(); }
+}
+function rerenderKeep(){ const y=window.scrollY; render(); window.scrollTo(0,y); }
+
+document.addEventListener("click",ev=>{
+  const b=ev.target.closest("[data-a]"); if(!b) return;
+  const a=b.dataset.a;
+  if(a==="closeSheetBg"){ if(ev.target===b) closeSheet(); return; }
+  if(a==="toggleShop"||a==="doneToday"||a==="bigText") return; // handled on change
+  switch(a){
+    case "go": route={tab:b.dataset.tab,sub:null}; if(route.tab==="checkin"&&!W) openCheckinInit(); render(); window.scrollTo(0,0); break;
+    case "openCheckin": closeSheet(); openCheckin(b.dataset.date); break;
+    case "pickDay": sheet(`<h2>Which day?</h2><form data-form="pickDay" class="stack" style="margin-top:1rem"><label class="field"><span>Date</span><input type="date" name="date" value="${W.date}" max="${today()}"></label><div class="row"><button type="button" class="btn quiet" data-a="closeSheet">Cancel</button><span class="grow"></span><button class="btn primary" type="submit">Use this day</button></div></form>`); break;
+    case "closeSheet": closeSheet(); break;
+    case "step": stepValue(b); rerenderKeep(); break;
+    case "pick": { const f=b.dataset.f; let v=b.dataset.v; if(["sq","energy","mood","stress","fog","joint","anxiety","overall","rev_overall"].includes(f)) v=+v;
+      if(f==="rev_overall"){ const wk=weekNo(today()); S.reviews[wk]=Object.assign(S.reviews[wk]||{},{overall:v}); save(); }
+      else { W.data[f]= W.data[f]===v ? undefined : v; draftSave(); }
+      rerenderKeep(); break; }
+    case "setVal": W.data[b.dataset.f]=+b.dataset.v; draftSave(); rerenderKeep(); break;
+    case "wNext": W.step=Math.min(3,W.step+1); render(); window.scrollTo(0,0); break;
+    case "wBack": W.step=Math.max(0,W.step-1); render(); window.scrollTo(0,0); break;
+    case "wCancel": S.draft=null; save(); W=null; route={tab:"today",sub:null}; render(); break;
+    case "wSave": finishSave(); break;
+    case "range": range=+b.dataset.v; render(); break;
+    case "openDay": dayDetail(b.dataset.date); break;
+    case "copySummary": copyText(summaryText()); break;
+    case "print": try{ window.print(); }catch(e){ toast("Printing isn't available here"); } break;
+    case "planTab": planTab=b.dataset.v; render(); break;
+    case "starterWeek": S.planMove={0:{focus:"Strength",min:40},1:{focus:"Walk",min:30},2:{focus:"Strength",min:40},3:{focus:"Mobility or yoga",min:30},4:{focus:"Strength",min:40},5:{focus:"Cardio",min:45},6:{focus:"Rest"}}; save(); render(); toast("Starter week added. Change anything you like."); break;
+    case "editMove": editMove(+b.dataset.i); break;
+    case "editMeals": editMeals(+b.dataset.i); break;
+    case "clearShop": S.shopping=S.shopping.filter(x=>!x.done); save(); render(); break;
+    case "sub": route={tab:"more",sub:b.dataset.v||null}; render(); window.scrollTo(0,0); break;
+    case "workbookGo": { const v=b.dataset.v; if(["plan","checkin","progress"].includes(v)){ route={tab:v,sub:null}; if(v==="checkin"&&!W) openCheckinInit(); } else route={tab:"more",sub:v}; render(); window.scrollTo(0,0); break; }
+    case "symDate": symptomDate=b.dataset.v; render(); window.scrollTo(0,0); break;
+    case "habitDate": habitDate=b.dataset.v; render(); window.scrollTo(0,0); break;
+    case "reflectWeek": reflectionWeek=Math.max(1,reflectionWeek+(+b.dataset.d||0)); render(); window.scrollTo(0,0); break;
+    case "editWeekDay": editWeekDay(+b.dataset.i); break;
+    case "editCourse": editCourseLesson(b.dataset.key); break;
+    case "editMealGuide": editMealGuideDay(+b.dataset.day); break;
+    case "theme": S.settings.theme=b.dataset.v; save(); rerenderKeep(); break;
+    case "editGoal": editGoal(+b.dataset.i); break;
+    case "delGoal": S.goals.splice(+b.dataset.i,1); save(); closeSheet(); render(); break;
+    case "editSupp": editSupp(+b.dataset.i); break;
+    case "delSupp": S.supps.splice(+b.dataset.i,1); save(); closeSheet(); render(); break;
+    case "editAppt": editAppt(+b.dataset.i); break;
+    case "delAppt": S.appts.splice(+b.dataset.i,1); save(); closeSheet(); render(); break;
+    case "saveXlsx": exportXlsx(); break;
+    case "pickFile": { const fi=document.getElementById("fileIn"); if(fi) fi.click(); break; }
+    case "importAdd": applyImport("add"); break;
+    case "importReplace": applyImport("replace"); break;
+    case "backupCopy": copyText(JSON.stringify(S)); break;
+    case "restore": { const t=document.getElementById("restoreBox").value.trim(); try{ const o=JSON.parse(t); if(!o||typeof o!=="object"||!o.entries) throw 0; S=Object.assign(DEF(),o); S.setup=true; save(); route={tab:"today",sub:null}; render(); toast("Backup restored"); }catch(e){ toast("That doesn't look like a backup. Check you copied all of it."); } break; }
+    case "sample": sheet(`<h2>Load sample data?</h2><p class="muted" style="margin:.5rem 0 1rem">This replaces everything on this device with four weeks of made-up entries.</p><div class="stack-sm"><button class="btn primary block" data-a="sampleYes">Load sample data</button><button class="btn quiet block" data-a="closeSheet">Cancel</button></div>`); break;
+    case "sampleYes": loadSample(); closeSheet(); route={tab:"today",sub:null}; render(); toast("Sample data loaded"); break;
+    case "erase": sheet(`<h2>Erase everything?</h2><p class="muted" style="margin:.5rem 0 1rem">All check-ins, plans and settings on this device will be deleted. This can't be undone.</p><div class="stack-sm"><button class="btn danger block" data-a="eraseYes">Erase everything</button><button class="btn quiet block" data-a="closeSheet">Cancel</button></div>`); break;
+    case "eraseYes": S=DEF(); store.set(S); W=null; ob=0; closeSheet(); route={tab:"today",sub:null}; render(); break;
+    case "replayIntro": S.setup=false; ob=0; render(); break;
+    case "obNext": ob=Math.min(2,ob+1); render(); window.scrollTo(0,0); break;
+    case "obBack": ob=Math.max(0,ob-1); render(); break;
+    case "obDone": S.setup=true; S.settings.start=today(); save(); route={tab:"today",sub:null}; render(); break;
+    case "obSample": loadSample(); route={tab:"today",sub:null}; render(); toast("Sample data loaded. Erase it any time in More."); break;
+  }
+});
+
+document.addEventListener("change",ev=>{
+  const t=ev.target;
+  if(t.id==="fileIn"){ const f=t.files&&t.files[0]; t.value=""; importFile(f); return; }
+  if(t.matches("[data-in]")){
+    const f=t.dataset.in, min=+t.dataset.min, max=+t.dataset.max;
+    if(t.value===""){ if(f.startsWith("t_")) return; W.data[f]=undefined; draftSave(); return; }
+    let v=parseFloat(t.value); if(isNaN(v)) return; v=Math.min(max,Math.max(min,v)); setField(f,v); rerenderKeep(); return;
+  }
+  if(t.matches("[data-set]")){ S.settings[t.dataset.set]=t.value; save(); return; }
+  if(t.matches("[data-sym-date]")){ symptomDate=t.value||today(); render(); return; }
+  if(t.matches("[data-sym-field]")){ const o=S.symptoms[symptomDate]||(S.symptoms[symptomDate]={}); const k=t.dataset.symField; if(t.value==="") delete o[k]; else o[k]=+t.value; save(); rerenderKeep(); return; }
+  if(t.matches("[data-habit-date]")){ habitDate=t.value||today(); render(); return; }
+  if(t.matches("[data-habit]")){ const o=S.habits[habitDate]||(S.habits[habitDate]={}); o[+t.dataset.habit]=t.checked; save(); rerenderKeep(); return; }
+  if(t.matches("[data-journey-rating]")){ const a=t.dataset.area, o=S.journey.ratings[a]||(S.journey.ratings[a]={}); if(t.value==="") delete o[t.dataset.journeyRating]; else o[t.dataset.journeyRating]=+t.value; save(); return; }
+  if(t.matches("[data-journey-focus]")){ const a=t.dataset.journeyFocus, o=S.journey.ratings[a]||(S.journey.ratings[a]={}); o.focus=t.checked; save(); return; }
+  if(t.matches("[data-week-done]")){ const p=weekPlan(Math.max(1,weekNo(today()))), i=+t.dataset.weekDone; p.days[i]=Object.assign(p.days[i]||{},{done:t.checked}); save(); return; }
+  if(t.matches("[data-meal-done]")){ const d=+t.dataset.mealDone, m=S.mealGuide[d]||(S.mealGuide[d]={}); m.done=t.checked; save(); rerenderKeep(); return; }
+  if(t.matches("[data-reflect]")){ const r=S.reviews[reflectionWeek]||(S.reviews[reflectionWeek]={}); r[t.dataset.reflect]=t.value===""?"":(t.dataset.reflect==="overall"?+t.value:t.value); save(); return; }
+  if(t.matches("[data-action-done]")&&W){ W.data.actionDone=t.checked; draftSave(); return; }
+  if(t.matches("[data-rev]")){ const wk=weekNo(today()); S.reviews[wk]=Object.assign(S.reviews[wk]||{},{[t.dataset.rev]:t.value}); save(); toast("Saved"); return; }
+  if(t.dataset.a==="toggleShop"){ S.shopping[+t.dataset.i].done=t.checked; save(); rerenderKeep(); return; }
+  if(t.dataset.a==="doneToday"){ if(t.checked) S.planDone[today()]=true; else delete S.planDone[today()]; save(); return; }
+  if(t.dataset.a==="bigText"){ S.settings.big=t.checked; save(); rerenderKeep(); return; }
+});
+document.addEventListener("input",ev=>{ const t=ev.target;
+  if(t.matches("[data-note]")&&W){ W.data.notes=t.value; draftSave(); return; }
+  if(t.matches("[data-main-sym]")&&W){ W.data.mainSym=t.value; draftSave(); return; }
+  if(t.matches("[data-daily-action]")&&W){ W.data.action=t.value; draftSave(); return; }
+  if(t.matches("[data-journey-intent]")){ S.journey.intentions[t.dataset.journeyIntent]=t.value; save(); return; }
+  if(t.matches("[data-habit-name]")){ S.habitNames[+t.dataset.habitName]=t.value||HABIT_DEFAULTS[+t.dataset.habitName]; save(); return; }
+  if(t.matches("[data-week-priority]")){ const p=weekPlan(Math.max(1,weekNo(today()))); p.priorities[+t.dataset.weekPriority]=t.value; save(); return; }
+  if(t.matches("textarea[data-reflect]")){ const r=S.reviews[reflectionWeek]||(S.reviews[reflectionWeek]={}); r[t.dataset.reflect]=t.value; save(); return; }
+});
+
+document.addEventListener("submit",ev=>{
+  const f=ev.target.closest("form[data-form]"); if(!f) return; ev.preventDefault();
+  const fd=Object.fromEntries(new FormData(f).entries()); const i=+f.dataset.i; const k=f.dataset.form;
+  if(k==="pickDay"){ if(fd.date){ const dd=fd.date>today()?today():fd.date; closeSheet(); S.draft=null; openCheckin(dd); } return; }
+  if(k==="addShop"){ const t=(fd.item||"").trim(); if(t){ S.shopping.push({t,done:false}); save(); render(); } return; }
+  if(k==="saveMove"){ if(fd.focus) S.planMove[i]={focus:fd.focus,min:fd.min?+fd.min:0,note:fd.note||""}; else delete S.planMove[i]; }
+  if(k==="saveMeals"){ S.planMeals[i]={b:fd.b,l:fd.l,d:fd.d,s:fd.s}; }
+  if(k==="saveWeekDay"){ const p=weekPlan(Math.max(1,weekNo(today()))); p.days[i]=Object.assign(p.days[i]||{},{action:fd.action||"",appointment:fd.appointment||""}); }
+  if(k==="saveCourse"){ const key=f.dataset.key; S.course[key]={status:fd.status||"Not started",notes:fd.notes||"",date:fd.date||""}; }
+  if(k==="saveMealGuide"){ const d=+f.dataset.day; S.mealGuide[d]={done:!!fd.done,swap:fd.swap||"",feel:fd.feel||""}; }
+  if(k==="saveGoal"){ if(!(fd.t||"").trim()) return; if(i>=0) S.goals[i]=fd; else S.goals.push(fd); }
+  if(k==="saveSupp"){ if(!(fd.name||"").trim()) return; if(i>=0) S.supps[i]=fd; else S.supps.push(fd); }
+  if(k==="saveAppt"){ if(i>=0) S.appts[i]=fd; else S.appts.push(fd); }
+  save(); closeSheet(); render(); toast("Saved");
+});
+document.addEventListener("keydown",ev=>{ if(ev.key==="Escape") closeSheet(); });
+
+render();
+})();
+</script>
+</body>
+</html>
