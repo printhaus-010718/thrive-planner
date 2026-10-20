@@ -1,0 +1,13 @@
+{
+  "name": "My Thrive Planner",
+  "short_name": "Thrive Planner",
+  "description": "Thrive Through Menopause with Kirsten the Naturopath",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#fff8f4",
+  "theme_color": "#fff8f4",
+  "icons": [
+    { "src": "logo.png", "sizes": "any", "type": "image/png", "purpose": "any" }
+  ]
+}
