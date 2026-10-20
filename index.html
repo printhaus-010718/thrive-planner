@@ -144,6 +144,19 @@ a{color:inherit}
 .note-row{display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin-bottom:14px}
 .detail{margin-top:6px;font-size:.86rem;color:var(--muted);white-space:pre-wrap}
 .hide{display:none!important}
+.rings-wrap{display:flex;gap:18px;align-items:center}
+.rings{width:150px;height:150px;flex:0 0 150px}
+.rings circle{fill:none;stroke-linecap:round}
+.rings .bg{opacity:.16}
+.rings .fg{transition:stroke-dashoffset .5s ease}
+.ring-legend{flex:1;display:grid;gap:10px;min-width:0}
+.ring-row{display:grid;grid-template-columns:14px 1fr auto;gap:8px;align-items:center}
+.ring-dot{width:12px;height:12px;border-radius:50%}
+.ring-row label{font-size:.82rem;font-weight:700;color:var(--muted);display:block}
+.ring-row .val{font-weight:700;font-size:.95rem}
+.ring-row input{width:96px;border:1.5px solid var(--line);border-radius:11px;padding:.45rem .55rem;min-height:42px;text-align:right;background:white}
+.ring-row input:focus{border-color:var(--pink);outline:none;box-shadow:0 0 0 3px rgba(215,43,107,.10)}
+@media(max-width:520px){.rings-wrap{flex-direction:column}.ring-legend{width:100%}}
 .file-label{position:relative;overflow:hidden;display:inline-flex;align-items:center}
 .file-label input{position:absolute;inset:0;opacity:0;cursor:pointer}
 </style>
@@ -185,7 +198,7 @@ const lessonId=x=>`m${x.module}l${x.lesson}`;
 /* ---------- State ---------- */
 function defaultState(){
  return {version:2,
-  settings:{name:"",programme:"Thrive Essentials",start:dateKey(),onboarded:false,lastBackup:"",targets:{sleep:7.5,water:8,move:30,protein:90}},
+  settings:{name:"",programme:"Thrive Essentials",start:dateKey(),onboarded:false,lastBackup:"",targets:{sleep:7.5,water:8,move:30,protein:90,steps:6000,calories:500}},
   journey:{goals:[],ratings:{},intentions:{}},
   checkins:{},symptoms:{},habits:{},weeklyPlans:{},reflections:{},course:{},mealNotes:{},mealNotes10:{},
   shopping:[],supplements:[],appointments:[]};
@@ -224,6 +237,13 @@ function avg(arr){const v=arr.filter(x=>typeof x==="number"&&!isNaN(x));return v
 function lastDates(n){return range(0,n-1).reverse().map(i=>addDays(dateKey(),-i))}
 function habitsDoneOn(d){const h=S.habits[d]||{};return habitList().filter(([k])=>h[k]).length}
 function symLoad(d){const e=S.symptoms[d]||{};return SYMPTOMS.reduce((s,[k])=>s+(+e[k]||0),0)}
+const RINGS=[["steps","Steps","#d72b6b",""],["moveMin","Moving","#f28a3a"," min"],["calories","Calories","#6e9c83"," kcal"]];
+function ringTarget(k){const t=S.settings.targets;return k==="steps"?t.steps:k==="moveMin"?t.move:t.calories}
+function ringPct(e,k){const v=+e[k]||0,t=+ringTarget(k)||1;return v/t}
+function ringsSVG(e,size){const R0=[62,46,30],C=k=>2*Math.PI*k;return `<svg class="rings" viewBox="0 0 150 150" ${size?`style="width:${size}px;height:${size}px;flex-basis:${size}px"`:""} role="img" aria-label="Activity rings">${RINGS.map(([k,,c],i)=>{const r=R0[i],L=C(r),p=Math.min(1,ringPct(e,k));return `<circle class="bg" cx="75" cy="75" r="${r}" stroke="${c}" stroke-width="13"/><circle class="fg" data-ring="${k}" cx="75" cy="75" r="${r}" stroke="${c}" stroke-width="13" stroke-dasharray="${L}" stroke-dashoffset="${L*(1-p)}" transform="rotate(-90 75 75)"/>`}).join("")}</svg>`}
+function ringVal(e,k){const v=+e[k]||0,u=RINGS.find(x=>x[0]===k)[3];return `${v.toLocaleString("en-AU")} / ${(+ringTarget(k)).toLocaleString("en-AU")}${u}`}
+function activityCard(d){const e=S.checkins[d]||{};return `<div class="card" id="activityCard"><div class="actions" style="justify-content:space-between;margin-bottom:10px"><h3 style="margin:0">Activity rings</h3><span class="small muted">Type in from your phone or watch</span></div><div class="rings-wrap">${ringsSVG(e)}<div class="ring-legend">${RINGS.map(([k,l,c])=>`<div class="ring-row"><span class="ring-dot" style="background:${c}"></span><div><label for="act-${k}">${l}</label><span class="val" data-ring-val="${k}">${ringVal(e,k)}</span></div><input id="act-${k}" type="number" inputmode="numeric" min="0" step="1" data-act="${k}" value="${e[k]??""}" placeholder="0"></div>`).join("")}</div></div></div>`}
+function updateRings(d){const e=S.checkins[d]||{};document.querySelectorAll("circle[data-ring]").forEach(c=>{const k=c.dataset.ring,L=+c.getAttribute("stroke-dasharray");c.setAttribute("stroke-dashoffset",L*(1-Math.min(1,ringPct(e,k))))});document.querySelectorAll("[data-ring-val]").forEach(s=>s.textContent=ringVal(e,s.dataset.ringVal))}
 function hasAnyData(){return Object.keys(S.checkins).length+Object.keys(S.symptoms).length+Object.keys(S.habits).length>0}
 
 /* ---------- Routing ---------- */
@@ -288,6 +308,7 @@ function viewToday(){
   <div class="card"><div class="muted small">Habits today</div><div class="kpi">${hd}<small> / 10</small></div><div class="progressbar"><i style="width:${hd*10}%"></i></div></div>
   <div class="card"><div class="muted small">Course</div><div class="kpi">${Math.round(cd/LESSONS.length*100)}%</div><div class="progressbar"><i style="width:${cd/LESSONS.length*100}%"></i></div></div>
  </div>
+ <div style="margin-top:14px">${activityCard(d)}</div>
  <div class="section-title"><h2>Today's meal plan</h2><button class="btn small secondary" data-go="plan" data-sub="meals">See all 10 weeks</button></div>
  <div class="card sun"><h3>Week ${m.week} · Day ${m.day}</h3><div class="small muted" style="margin:-4px 0 6px">${esc(MEAL_WEEKS[m.week-1].title)}</div>
   <div class="meal-row"><b>Breakfast</b><span>${esc(m.breakfast)}</span></div>
@@ -364,7 +385,8 @@ function picker(k,label,hint,min,max,e){const v=e[k];return `<div class="scale-c
 function dailyCheck(){
  const d=dateKey(),e=S.checkins[d]||{};
  return `<div class="section-title"><h2>${dayName(d)}, ${fmt(d)}</h2><span class="small muted">Saves automatically</span></div>
- <div class="card"><label class="field" style="margin-top:0"><span>Sleep last night (hours) · target ${S.settings.targets.sleep}h</span><input type="number" inputmode="decimal" step=".25" min="0" max="16" data-check="sleep" value="${esc(e.sleep??"")}" placeholder="e.g. 7.5"></label>
+ ${activityCard(d)}
+ <div class="card" style="margin-top:12px"><label class="field" style="margin-top:0"><span>Sleep last night (hours) · target ${S.settings.targets.sleep}h</span><input type="number" inputmode="decimal" step=".25" min="0" max="16" data-check="sleep" value="${esc(e.sleep??"")}" placeholder="e.g. 7.5"></label>
  <div class="check-grid" style="margin-top:12px">${picker("sleepQuality","Sleep quality","1 poor · 5 great",1,5,e)}${picker("mood","Mood","1 low · 5 great",1,5,e)}${picker("energy","Energy","1 drained · 5 energised",1,5,e)}${picker("stress","Stress","1 calm · 5 very stressed",1,5,e)}${picker("overallSymptoms","Overall symptoms","0 none · 5 severe",0,5,e)}</div>
  <label class="field"><span>Main symptom today</span><input data-check="mainSymptom" value="${esc(e.mainSymptom||"")}" placeholder="e.g. hot flushes"></label>
  <label class="field"><span>One small action for me</span><input data-check="action" value="${esc(e.action||"")}" placeholder="10-minute walk, early night..."></label>
@@ -400,6 +422,10 @@ function viewProgress(){
   <div class="card"><div class="muted small">Avg stress</div><div class="kpi">${show(aStress," / 5")}</div><div class="small muted">Lower is calmer</div></div>
  </div>
  <div class="section-title"><h2>Thrive score</h2></div><div class="card">${bars(entries.map(calcThrive),5,"",dates,v=>v+" / 5")}</div>
+ <div class="section-title"><h2>Activity</h2><span class="small muted">Rings closed this week: ${dates.filter(d=>RINGS.every(([k])=>ringPct(S.checkins[d]||{},k)>=1)).length}</span></div>
+ <div class="card"><div style="display:grid;grid-template-columns:repeat(7,1fr);gap:4px;text-align:center">${dates.map(d=>`<div>${ringsSVG(S.checkins[d]||{},40).replace('class="rings"','class="rings" style="width:100%;max-width:44px;height:auto"')}<div class="small muted">${dayName(d).slice(0,2)}</div></div>`).join("")}</div>
+ <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px">${RINGS.map(([k,l,,u])=>{const a=avg(entries.map(x=>x[k]==null?null:+x[k]));return `<div><div class="muted small">Avg ${l.toLowerCase()}</div><b>${a==null?"–":Math.round(a).toLocaleString("en-AU")+u}</b></div>`}).join("")}</div>
+ <div class="small muted" style="margin-top:8px">Steps</div>${bars(entries.map(x=>+x.steps||0),Math.max(S.settings.targets.steps,...entries.map(x=>+x.steps||0)),"",dates,v=>v.toLocaleString("en-AU")+" steps")}</div>
  <div class="section-title"><h2>Symptom load</h2><span class="small muted">Lower is better</span></div><div class="card">${bars(dates.map(symLoad),45,"orange",dates,v=>v+" / 45")}</div>
  <div class="section-title"><h2>Habits completed</h2></div><div class="card">${bars(dates.map(habitsDoneOn),10,"green",dates,v=>v+" / 10")}</div>
  <div class="section-title"><h2>Course progress</h2></div><div class="card"><b>${cd} of ${LESSONS.length} lessons complete</b><div class="progressbar" style="margin-top:10px"><i style="width:${cd/LESSONS.length*100}%"></i></div></div>
@@ -466,7 +492,7 @@ function moreSettings(){
  const t=S.settings.targets;
  return `${header("Settings","Personalise your planner")}${backMore()}
  <div class="card" style="margin-top:12px"><label class="field" style="margin-top:0"><span>Your name</span><input data-setting="name" value="${esc(S.settings.name)}"></label><label class="field"><span>Programme</span><select data-setting="programme">${PROGRAMMES.map(x=>`<option ${S.settings.programme===x?"selected":""}>${x}</option>`).join("")}</select></label><label class="field"><span>Programme start date</span><input type="date" data-setting="start" value="${S.settings.start}"></label>
- <div class="grid two"><label class="field"><span>Sleep target (hours)</span><input type="number" inputmode="decimal" step=".25" min="0" max="16" data-target="sleep" value="${t.sleep}"></label><label class="field"><span>Water target (glasses)</span><input type="number" inputmode="numeric" min="0" data-target="water" value="${t.water}"></label><label class="field"><span>Movement target (minutes)</span><input type="number" inputmode="numeric" min="0" data-target="move" value="${t.move}"></label><label class="field"><span>Protein target (g)</span><input type="number" inputmode="numeric" min="0" data-target="protein" value="${t.protein}"></label></div></div>
+ <div class="grid two"><label class="field"><span>Sleep target (hours)</span><input type="number" inputmode="decimal" step=".25" min="0" max="16" data-target="sleep" value="${t.sleep}"></label><label class="field"><span>Water target (glasses)</span><input type="number" inputmode="numeric" min="0" data-target="water" value="${t.water}"></label><label class="field"><span>Steps target</span><input type="number" inputmode="numeric" min="0" data-target="steps" value="${t.steps}"></label><label class="field"><span>Active calories target (kcal)</span><input type="number" inputmode="numeric" min="0" data-target="calories" value="${t.calories}"></label><label class="field"><span>Moving target (minutes)</span><input type="number" inputmode="numeric" min="0" data-target="move" value="${t.move}"></label><label class="field"><span>Protein target (g)</span><input type="number" inputmode="numeric" min="0" data-target="protein" value="${t.protein}"></label></div></div>
  <div class="section-title"><h2>Start fresh</h2></div>
  <div class="card"><p class="muted" style="margin-top:0">Erase everything in this planner on this device. Download a backup first if you might want your records later.</p><button class="btn danger" data-reset>Erase all planner data</button></div>`;
 }
@@ -498,8 +524,8 @@ function exportExcel(){
  const wp=[["Week","Day","Date","Priority 1","Priority 2","Priority 3","Meals / wellbeing","Movement","Appointment","Done?"]];
  Object.keys(S.weeklyPlans).map(Number).sort((a,b)=>a-b).forEach(w=>{const p=getWeekPlan(w);range(0,6).forEach(i=>{const d=addDays(weekStart(w),i),x=p.days[d]||{};wp.push([w,dayName(d),d,p.priorities[0]||"",p.priorities[1]||"",p.priorities[2]||"",x.meals||"",x.movement||"",x.appointment||"",yn(x.done)])})});
  add("Weekly Planner",wp,[6,11,11,22,22,22,30,18,18,7]);
- const ci=[["Date","Day","Week","Sleep (hrs)","Sleep quality (1-5)","Mood (1-5)","Energy (1-5)","Stress (1-5)","Overall symptoms (0-5)","Main symptom","Daily action","Action done?","Notes","Thrive score"]];
- Object.keys(S.checkins).sort().forEach(d=>{const e=S.checkins[d];ci.push([d,dayName(d),weekOf(d),e.sleep??"",e.sleepQuality??"",e.mood??"",e.energy??"",e.stress??"",e.overallSymptoms??"",e.mainSymptom||"",e.action||"",yn(e.actionDone),e.notes||"",calcThrive(e)??""])});
+ const ci=[["Date","Day","Week","Sleep (hrs)","Sleep quality (1-5)","Mood (1-5)","Energy (1-5)","Stress (1-5)","Overall symptoms (0-5)","Main symptom","Daily action","Action done?","Notes","Thrive score","Steps","Moving (min)","Calories (kcal)"]];
+ Object.keys(S.checkins).sort().forEach(d=>{const e=S.checkins[d];ci.push([d,dayName(d),weekOf(d),e.sleep??"",e.sleepQuality??"",e.mood??"",e.energy??"",e.stress??"",e.overallSymptoms??"",e.mainSymptom||"",e.action||"",yn(e.actionDone),e.notes||"",calcThrive(e)??"",e.steps??"",e.moveMin??"",e.calories??""])});
  add("Daily Check-In",ci,[11,11,6,10,10,10,10,10,12,20,24,10,30,10]);
  const sy=[["Date","Week",...SYMPTOMS.map(x=>x[1]),"Total"]];Object.keys(S.symptoms).sort().forEach(d=>{const e=S.symptoms[d],vals=SYMPTOMS.map(([k])=>+e[k]||0);sy.push([d,weekOf(d),...vals,vals.reduce((a,b)=>a+b,0)])});add("Symptom Tracker",sy);
  const ha=[["Date","Week",...HL.map(x=>x[1]),"Habits done"]];Object.keys(S.habits).sort().forEach(d=>{const e=S.habits[d],vals=HL.map(([k])=>e[k]?"✓":"");ha.push([d,weekOf(d),...vals,vals.filter(Boolean).length])});add("Habit Tracker",ha);
@@ -533,6 +559,7 @@ function bind(){
  const md=x=>{const n=entry("mealNotes10",x.dataset.mealDay);n[x.dataset.mealF]=x.type==="checkbox"?x.checked:x.value;save()};
  on("[data-meal-day]","input",md);on("input[type=checkbox][data-meal-day]","change",md);
  on("[data-check]","input",x=>{const e=entry("checkins",dateKey());if(x.type==="number"){e[x.dataset.check]=x.value===""?"":clamp(+x.value,0,16)}else e[x.dataset.check]=x.value;save()});
+ on("[data-act]","input",x=>{const d=dateKey(),e=entry("checkins",d);if(x.value===""){delete e[x.dataset.act]}else e[x.dataset.act]=Math.max(0,Math.round(+x.value)||0);save();updateRings(d)});
  on("[data-check-box]","change",x=>{entry("checkins",dateKey())[x.dataset.checkBox]=x.checked;save()});
  on("[data-pick]","click",b=>{const e=entry("checkins",dateKey()),k=b.dataset.pick,v=+b.dataset.v;if(e[k]===v){delete e[k]}else e[k]=v;save();b.parentElement.querySelectorAll(".pk").forEach(p=>{const onp=e[k]===+p.dataset.v;p.classList.toggle("on",onp);p.setAttribute("aria-pressed",onp)})});
  on("[data-sym]","click",b=>{const e=entry("symptoms",dateKey()),k=b.dataset.sym,v=+b.dataset.v;e[k]=v;save();b.parentElement.querySelectorAll(".pk").forEach(p=>{const onp=+p.dataset.v===v;p.classList.toggle("on",onp);p.setAttribute("aria-pressed",onp)})});
