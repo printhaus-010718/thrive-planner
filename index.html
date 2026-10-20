@@ -304,12 +304,12 @@ function viewToday(){
  ${nudge}
  <section class="hero"><h2>${before?"Getting ready":`Week ${w}`} • ${esc(dayName(d))}</h2><p>${before?`Your programme starts on ${fmt(S.settings.start)}. Have a look around and set your goals in My Thrive Journey.`:"Keep today simple: notice how you feel, choose one supportive action, and continue your Thrive journey."}</p>
  <div class="actions" style="margin-top:14px"><button class="btn" data-go="checkin" data-sub="daily">${checked?"Update today's check-in":"Do today's check-in"}</button>${checked?`<span class="badge done">Checked in today ✓</span>`:""}</div></section>
- <div class="grid three">
-  <div class="card"><div class="muted small">Today's Thrive score</div><div class="kpi">${score??"–"}${score?"<small> / 5</small>":""}</div><div class="small muted">Sleep quality, mood, energy & calm</div></div>
+ <div class="card"><div class="muted small">Today's Thrive score</div><div class="kpi">${score??"–"}${score?"<small> / 5</small>":""}</div><div class="small muted">Sleep quality, mood, energy & calm</div></div>
+ <div style="margin-top:14px">${activityCard(d)}</div>
+ <div class="grid two" style="margin-top:14px">
   <div class="card"><div class="muted small">Habits today</div><div class="kpi">${hd}<small> / 10</small></div><div class="progressbar"><i style="width:${hd*10}%"></i></div></div>
   <div class="card"><div class="muted small">Course</div><div class="kpi">${Math.round(cd/LESSONS.length*100)}%</div><div class="progressbar"><i style="width:${cd/LESSONS.length*100}%"></i></div></div>
  </div>
- <div style="margin-top:14px">${activityCard(d)}</div>
  <div class="section-title"><h2>Today's meal plan</h2><button class="btn small secondary" data-go="plan" data-sub="meals">See all 10 weeks</button></div>
  <div class="card sun"><h3>Week ${m.week} · Day ${m.day}</h3><div class="small muted" style="margin:-4px 0 6px">${esc(MEAL_WEEKS[m.week-1].title)}</div>
   <div class="meal-row"><b>Breakfast</b><span>${esc(m.breakfast)}</span></div>
