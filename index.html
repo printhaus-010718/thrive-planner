@@ -198,6 +198,14 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;letter-spacing:-.01em;font-var
 .note-row{display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin-bottom:14px}
 .detail{margin-top:6px;font-size:.86rem;color:var(--muted);white-space:pre-wrap}
 .hide{display:none!important}
+.sleep-card{background:linear-gradient(160deg,#fff 0%,#fdf0f4 100%);border-color:#f3d3de}
+.sleep-head{display:flex;gap:14px;align-items:flex-start}
+.sleep-head h3{margin:0 0 2px}
+.sleep-ico{flex:0 0 44px;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:var(--berry);color:#fff}
+.btn .ico{width:18px;height:18px;vertical-align:-3px;margin-right:4px}
+.btn:disabled{opacity:.45;box-shadow:none;cursor:not-allowed}
+.sleep-mini{display:flex;gap:12px;align-items:center}
+input[type=time]{-webkit-appearance:none;appearance:none}
 .file-label{position:relative;overflow:hidden;display:inline-flex;align-items:center}
 .file-label input{position:absolute;inset:0;opacity:0;cursor:pointer}
 
@@ -257,7 +265,7 @@ function defaultState(){
  return {version:2,
   settings:{name:"",programme:"Thrive Essentials",start:dateKey(),onboarded:false,lastBackup:"",targets:{sleep:7.5,water:8,move:30,protein:90,steps:6000,calories:500,moveRing:180}},
   journey:{goals:[],ratings:{},intentions:{}},
-  checkins:{},symptoms:{},habits:{},weeklyPlans:{},reflections:{},course:{},mealNotes:{},mealNotes10:{},
+  checkins:{},symptoms:{},habits:{},weeklyPlans:{},reflections:{},course:{},mealNotes:{},mealNotes10:{},sleepGoals:{},
   shopping:[],supplements:[],appointments:[]};
 }
 function normalize(raw){
@@ -270,7 +278,7 @@ function normalize(raw){
  s.journey=Object.assign({goals:[],ratings:{},intentions:{}},raw.journey||{});
  if(!Array.isArray(s.journey.goals))s.journey.goals=[];
  ["ratings","intentions"].forEach(k=>{if(!s.journey[k]||typeof s.journey[k]!=="object")s.journey[k]={}});
- ["checkins","symptoms","habits","weeklyPlans","reflections","course","mealNotes","mealNotes10"].forEach(k=>{if(!s[k]||typeof s[k]!=="object"||Array.isArray(s[k]))s[k]={}});
+ ["checkins","symptoms","habits","weeklyPlans","reflections","course","mealNotes","mealNotes10","sleepGoals"].forEach(k=>{if(!s[k]||typeof s[k]!=="object"||Array.isArray(s[k]))s[k]={}});
  ["shopping","supplements","appointments"].forEach(k=>{if(!Array.isArray(s[k]))s[k]=[]});
  s.version=2;
  return s;
@@ -302,6 +310,27 @@ function hm(m){m=Math.round(+m||0);const h=Math.floor(m/60),r=m%60;return h?(r?`
 function ringVal(e,k){const v=+e[k]||0,u=RINGS.find(x=>x[0]===k)[3];if(k==="moveMin")return `${hm(v)} / ${hm(ringTarget(k))}`;return `${v.toLocaleString("en-AU")} / ${(+ringTarget(k)).toLocaleString("en-AU")}${u}`}
 function activityCard(d){const e=S.checkins[d]||{};return `<div class="card" id="activityCard"><div class="actions" style="justify-content:space-between;margin-bottom:10px"><h3 style="margin:0">Activity rings</h3><span class="small muted">Type in from your phone or watch</span></div><div class="rings-wrap">${ringsSVG(e)}<div class="ring-legend">${RINGS.map(([k,l,c])=>`<div class="ring-row"><span class="ring-dot" style="background:${c}"></span><div><label for="act-${k}">${l}${k==="moveMin"?" (minutes)":""}</label><span class="val" data-ring-val="${k}">${ringVal(e,k)}</span></div><input id="act-${k}" type="number" inputmode="numeric" min="0" step="1" data-act="${k}" value="${e[k]??""}" placeholder="0"></div>`).join("")}</div></div></div>`}
 function updateRings(d){const e=S.checkins[d]||{};document.querySelectorAll("circle[data-ring]").forEach(c=>{const k=c.dataset.ring,L=+c.getAttribute("stroke-dasharray");c.setAttribute("stroke-dashoffset",L*(1-Math.min(1,ringPct(e,k))))});document.querySelectorAll("[data-ring-val]").forEach(s=>s.textContent=ringVal(e,s.dataset.ringVal))}
+function fmtTime(t){if(!t)return "";const [H,M]=t.split(":").map(Number);const ap=H>=12?"pm":"am",h12=H%12||12;return `${h12}:${pad(M)} ${ap}`}
+function sleepHours(b,w){if(!b||!w)return null;const [bh,bm]=b.split(":").map(Number),[wh,wm]=w.split(":").map(Number);let m=(wh*60+wm)-(bh*60+bm);if(m<=0)m+=1440;return m/60}
+function sleepGoalCard(w){const g=S.sleepGoals[w]||{},hrs=sleepHours(g.bed,g.wake),t=S.settings.targets.sleep;
+ return `<div class="card sleep-card" id="sleepCard"><div class="sleep-head"><span class="sleep-ico">${icon("moon")}</span><div><h3>My sleep goal for this week</h3><p class="small muted" style="margin:0">The one or two habits I'm committing to, starting tonight.</p></div></div>
+ <label class="field"><span>My sleep habits</span><textarea data-sleep="habits" data-week="${w}" placeholder="e.g. Phone out of the bedroom. Herbal tea and a book at 9:30 pm.">${esc(g.habits||"")}</textarea></label>
+ <div class="grid two" style="gap:10px"><label class="field"><span>My target bedtime</span><input type="time" data-sleep="bed" data-week="${w}" value="${esc(g.bed||"")}"></label><label class="field"><span>My consistent wake time</span><input type="time" data-sleep="wake" data-week="${w}" value="${esc(g.wake||"")}"></label></div>
+ <p class="small" id="sleepHrs" style="margin:10px 0 0;color:var(--berry)">${hrs?`That's <b>${round1(hrs)} hours</b> in bed${hrs<t?` — a little under your ${t}h sleep target`:""}.`:"Set both times to see how many hours you'll have in bed."}</p>
+ <div class="actions" style="margin-top:14px"><button class="btn" data-sleep-cal ${g.bed&&g.wake?"":"disabled"}>${icon("bell")} Add bedtime & wake reminders</button></div>
+ <p class="small muted" style="margin:8px 0 0">Adds 7 days of reminders to your phone's calendar: a wind-down alert 30 minutes before bed, and an alert at bedtime and wake time.</p></div>`}
+function sleepCalendar(w){const g=S.sleepGoals[w]||{};if(!g.bed||!g.wake){toast("Set your bedtime and wake time first");return}
+ const today=dateKey(),ws=weekStart(w),start=ws>today?ws:today,left=7;
+ const dt=(d,t)=>d.replace(/-/g,"")+"T"+t.replace(":","")+"00",stamp=new Date().toISOString().replace(/[-:]/g,"").replace(/\.\d+/,"");
+ const [bh,bm]=g.bed.split(":").map(Number),bedEnd=`${pad((bh+(bm+15>=60?1:0))%24)}:${pad((bm+15)%60)}`;
+ const [wh,wm]=g.wake.split(":").map(Number),wakeEnd=`${pad((wh+(wm+15>=60?1:0))%24)}:${pad((wm+15)%60)}`;
+ const wakeDay=sleepHours(g.bed,g.wake)&&(wh*60+wm)<=(bh*60+bm)?addDays(start,1):start;
+ const ev=(uid,title,d,t,te,desc,alarms)=>["BEGIN:VEVENT",`UID:${uid}-${w}-${start}@thrive-planner`,`DTSTAMP:${stamp}`,`DTSTART:${dt(d,t)}`,`DTEND:${dt(te<t?addDays(d,1):d,te)}`,`RRULE:FREQ=DAILY;COUNT=${left}`,`SUMMARY:${title}`,`DESCRIPTION:${desc}`,...alarms.map(a=>`BEGIN:VALARM\r\nACTION:DISPLAY\r\nDESCRIPTION:${title}\r\nTRIGGER:${a}\r\nEND:VALARM`),"END:VEVENT"].join("\r\n");
+ const habits=(g.habits||"").replace(/\r?\n/g," ").replace(/[,;]/g,"\\$&");
+ const ics=["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//Thrive Planner//EN","CALSCALE:GREGORIAN","METHOD:PUBLISH",
+  ev("bed","Thrive: time for bed",start,g.bed,bedEnd,`My sleep habits: ${habits||"wind down and switch off screens"}`,["-PT30M","PT0M"]),
+  ev("wake","Thrive: wake up",wakeDay,g.wake,wakeEnd,"Consistent wake time. Get some morning light.",["PT0M"]),"END:VCALENDAR",""].join("\r\n");
+ saveFile(`Thrive-Sleep-Reminders-Week-${w}.ics`,new Blob([ics],{type:"text/calendar"}));toast("Open the file to add your reminders")}
 function hasAnyData(){return Object.keys(S.checkins).length+Object.keys(S.symptoms).length+Object.keys(S.habits).length>0}
 
 /* ---------- Routing ---------- */
@@ -315,6 +344,7 @@ function refresh(){const y=scrollY;render();scrollTo(0,y)}
 
 /* ---------- UI bits ---------- */
 const ICONS={today:'<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>',progress:'<path d="M3 3v18h18"/><path d="m7 15 4-4 3 3 5-6"/>',checkin:'<path d="M12 5v14M5 12h14"/>',plan:'<rect x="3" y="4.5" width="18" height="16" rx="3"/><path d="M8 2.5v4M16 2.5v4M3 10h18"/>',more:'<circle cx="5" cy="12" r="1.3"/><circle cx="12" cy="12" r="1.3"/><circle cx="19" cy="12" r="1.3"/>',start:'<path d="M12 21s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.6-7 10-7 10Z"/>',journey:'<path d="M12 3l2.2 5.2L20 9l-4.3 3.8L17 18.5 12 15.6 7 18.5l1.3-5.7L4 9l5.8-.8Z"/>',reflection:'<path d="M4 20h4L19 9a2.8 2.8 0 0 0-4-4L4 16Z"/><path d="m13.5 6.5 4 4"/>',course:'<path d="M2 9l10-5 10 5-10 5Z"/><path d="M6 11v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/>',meals:'<path d="M4 3v8a3 3 0 0 0 6 0V3M7 3v18"/><path d="M17 3c-2 0-3 2.5-3 6s1 4 3 4v8"/>',supplements:'<rect x="3" y="8.5" width="18" height="7" rx="3.5" transform="rotate(-45 12 12)"/><path d="m9.5 9.5 5 5"/>',appointments:'<rect x="3" y="4.5" width="18" height="16" rx="3"/><path d="M8 2.5v4M16 2.5v4M3 10h18M8 14.5h3"/>',excel:'<path d="M12 3v12M7 10l5 5 5-5"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/>',settings:'<circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1Z"/>'};
+ICONS.moon='<path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5Z"/>';ICONS.bell='<path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.9 1.9 0 0 0 3.4 0"/>';
 const icon=k=>`<svg class="ico" viewBox="0 0 24 24" aria-hidden="true">${ICONS[k]||""}</svg>`;
 function toast(msg){const t=document.getElementById("toast");t.textContent=msg;t.classList.remove("hide");clearTimeout(window._tt);window._tt=setTimeout(()=>t.classList.add("hide"),2600)}
 function header(title,sub){return `<header class="brand"><img class="logo" src="logo.png" alt="Kirsten the Naturopath"><div class="brand-copy"><h1>${esc(title)}</h1><p>${esc(sub||"Thrive Through Menopause with Kirsten the Naturopath")}</p></div></header>`}
@@ -365,6 +395,7 @@ function viewToday(){
  <div class="actions" style="margin-top:14px"><button class="btn" data-go="checkin" data-sub="daily">${checked?"Update today's check-in":"Do today's check-in"}</button>${checked?`<span class="badge done">Checked in today ✓</span>`:""}</div></section>
  <div class="card"><div class="muted small">Today's Thrive score</div><div class="kpi">${score??"–"}${score?"<small> / 5</small>":""}</div><div class="small muted">Sleep quality, mood, energy & calm</div></div>
  <div style="margin-top:14px">${activityCard(d)}</div>
+ ${(()=>{const g=S.sleepGoals[w]||{};return `<div class="card" style="margin-top:14px"><div class="sleep-mini"><span class="sleep-ico">${icon("moon")}</span><div style="flex:1;min-width:0"><b style="font-family:var(--serif);font-size:1.12rem;color:var(--berry)">${g.bed&&g.wake?`Bed ${fmtTime(g.bed)} · Wake ${fmtTime(g.wake)}`:"Set your sleep goal"}</b><div class="small muted">${g.habits?esc(g.habits):"Choose a bedtime, wake time and one or two habits for this week."}</div></div><button class="btn small secondary" data-go="plan" data-sub="week">${g.bed?"Edit":"Set"}</button></div></div>`})()}
  <div class="grid two" style="margin-top:14px">
   <div class="card"><div class="muted small">Habits today</div><div class="kpi">${hd}<small> / 10</small></div><div class="progressbar"><i style="width:${hd*10}%"></i></div></div>
   <div class="card"><div class="muted small">Course</div><div class="kpi">${Math.round(cd/LESSONS.length*100)}%</div><div class="progressbar"><i style="width:${cd/LESSONS.length*100}%"></i></div></div>
@@ -391,6 +422,7 @@ function viewWeeklyPlan(){
  const w=selectedWeek||currentWeek(),p=getWeekPlan(w),start=weekStart(w),less=weekLessons(w),today=dateKey();
  return `<div class="section-title"><h2>Week ${w}</h2><div class="actions"><button class="btn small ghost" data-week-change="-1" aria-label="Previous week">←</button><button class="btn small ghost" data-week-today>This week</button><button class="btn small ghost" data-week-change="1" aria-label="Next week">→</button></div></div>
  <div class="card tint"><b>${fmt(start)} – ${fmt(addDays(start,6))}</b><div class="small muted" style="margin-top:5px">${less.map(x=>`M${x.module} L${x.lesson}: ${esc(x.title)}`).join(" • ")||"No scheduled lesson — choose your own focus this week"}</div></div>
+ <div style="margin-top:14px">${sleepGoalCard(w)}</div>
  <div class="section-title"><h2>Top 3 priorities</h2></div>
  <div class="grid three">${[0,1,2].map(i=>`<label class="field card" style="margin:0"><span>Priority ${i+1}</span><input data-week-priority="${i}" data-week="${w}" value="${esc(p.priorities[i]||"")}" placeholder="What matters this week?"></label>`).join("")}</div>
  <div class="section-title"><h2>Daily plan</h2></div>
@@ -589,6 +621,7 @@ function exportExcel(){
  add("Daily Check-In",ci,[11,11,6,10,10,10,10,10,12,20,24,10,30,10]);
  const sy=[["Date","Week",...SYMPTOMS.map(x=>x[1]),"Total"]];Object.keys(S.symptoms).sort().forEach(d=>{const e=S.symptoms[d],vals=SYMPTOMS.map(([k])=>+e[k]||0);sy.push([d,weekOf(d),...vals,vals.reduce((a,b)=>a+b,0)])});add("Symptom Tracker",sy);
  const ha=[["Date","Week",...HL.map(x=>x[1]),"Habits done"]];Object.keys(S.habits).sort().forEach(d=>{const e=S.habits[d],vals=HL.map(([k])=>e[k]?"✓":"");ha.push([d,weekOf(d),...vals,vals.filter(Boolean).length])});add("Habit Tracker",ha);
+ add("Sleep Goals",[["Week","Week starting","My sleep habits","Target bedtime","Wake time","Hours in bed"],...Object.keys(S.sleepGoals).map(Number).sort((a,b)=>a-b).map(w=>{const g=S.sleepGoals[w];const hr=sleepHours(g.bed,g.wake);return[w,weekStart(w),g.habits||"",fmtTime(g.bed),fmtTime(g.wake),hr?round1(hr):""]})],[6,12,50,14,12,12]);
  add("Weekly Reflection",[["Week","Week starting","Wins","Challenges","Lessons learned","Changes noticed","Next week's focus","Overall (1-5)"],...Object.keys(S.reflections).map(Number).sort((a,b)=>a-b).map(w=>{const r=S.reflections[w];return[w,weekStart(w),r.wins||"",r.challenges||"",r.lessons||"",r.changes||"",r.next||"",r.overall||""]})],[6,12,30,30,30,30,30,10]);
  add("Course Tracker",[["Module","Module name","Lesson","Lesson title","Worksheet","Status","Suggested week","Date completed","Notes"],...LESSONS.map(x=>{const c=S.course[lessonId(x)]||{};return[x.module,x.moduleName,x.lesson,x.title,x.worksheet,c.status||"Not started",x.suggestedWeek,c.completed||"",c.notes||""]})],[8,34,7,38,28,12,10,14,30]);
  add("10-Week Meal Plan",[["Day","Week","Week theme","Menu day","Breakfast","Lunch","Dinner","Snack","Followed/adapted?","My Swap / Notes","How I Felt"],...MEALS.map(m=>{const n=S.mealNotes10[m.day]||{};return[m.day,m.week,MEAL_WEEKS[m.week-1].title,m.dow,m.breakfast,m.lunch,m.dinner,m.snack,yn(n.followed),n.swap||"",n.felt||""]})],[5,6,30,8,40,36,46,28,12,24,20]);
@@ -616,6 +649,8 @@ function bind(){
  on("[data-week-priority]","input",x=>{getWeekPlan(+x.dataset.week).priorities[+x.dataset.weekPriority]=x.value;save()});
  const wd=x=>{const p=getWeekPlan(+x.dataset.week);p.days[x.dataset.weekDay]=p.days[x.dataset.weekDay]||{};p.days[x.dataset.weekDay][x.dataset.f]=x.type==="checkbox"?x.checked:x.value;save()};
  on("[data-week-day]","input",wd);on("input[type=checkbox][data-week-day]","change",wd);
+ on("[data-sleep]","input",x=>{const g=entry("sleepGoals",x.dataset.week);g[x.dataset.sleep]=x.value;save();if(x.dataset.sleep!=="habits"){const hrs=sleepHours(g.bed,g.wake),t=S.settings.targets.sleep,el=document.getElementById("sleepHrs"),b=document.querySelector("[data-sleep-cal]");if(el)el.innerHTML=hrs?`That's <b>${round1(hrs)} hours</b> in bed${hrs<t?` — a little under your ${t}h sleep target`:""}.`:"Set both times to see how many hours you'll have in bed.";if(b)b.disabled=!(g.bed&&g.wake)}});
+ on("[data-sleep-cal]","click",()=>sleepCalendar(selectedWeek||currentWeek()));
  const md=x=>{const n=entry("mealNotes10",x.dataset.mealDay);n[x.dataset.mealF]=x.type==="checkbox"?x.checked:x.value;save()};
  on("[data-meal-day]","input",md);on("input[type=checkbox][data-meal-day]","change",md);
  on("[data-check]","input",x=>{const e=entry("checkins",dateKey());if(x.type==="number"){e[x.dataset.check]=x.value===""?"":clamp(+x.value,0,16)}else e[x.dataset.check]=x.value;save()});
