@@ -1,13 +1,23 @@
 {
+  "id": "./",
   "name": "My Thrive Planner",
   "short_name": "Thrive Planner",
   "description": "Thrive Through Menopause with Kirsten the Naturopath",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
+  "display_override": ["standalone", "minimal-ui"],
+  "orientation": "portrait",
+  "lang": "en-AU",
+  "categories": ["health", "lifestyle", "productivity"],
   "background_color": "#fbf3f1",
   "theme_color": "#fbf3f1",
   "icons": [
-    { "src": "logo.png", "sizes": "any", "type": "image/png", "purpose": "any" }
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icons/maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "Daily Check-In", "short_name": "Check-In", "url": "./#today", "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }] }
   ]
 }

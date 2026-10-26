@@ -8,9 +8,12 @@
 <meta name="description" content="My Thrive Planner — Thrive Through Menopause with Kirsten the Naturopath">
 <meta name="apple-mobile-web-app-title" content="Thrive Planner">
 <meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
 <title>My Thrive Planner — Kirsten the Naturopath</title>
-<link rel="icon" href="logo.png">
-<link rel="apple-touch-icon" href="logo.png">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -537,7 +540,7 @@ function moreStart(){
  const rows=[["My Thrive Journey","Your personal goals, intentions and what you want to improve"],["Weekly Planner","Weekly priorities, meals and wellbeing, movement and appointments"],["Daily Check-In","Sleep, mood, energy, stress, symptoms and your daily action"],["Symptom Tracker","Track common menopause symptoms over time"],["Habit Tracker","Nutrition, hydration, movement, sleep routine and self-care"],["Progress","Simple trends for your last 7 days"],["Weekly Reflection","Wins, challenges, lessons and next week's focus"],["Course Tracker","Thrive modules, lessons, worksheets and completion status"],["10-Week Meal Plan","Kirsten's weekly menus, daily targets, portions and shopping guide"]];
  return `${header("Start Here","How to use My Thrive Planner")}${backMore()}
  <div class="section-title"><h2>Install it like an app</h2></div>
- <div class="card"><p style="margin-top:0"><b>iPhone / iPad (Safari):</b> tap the Share button → <b>Add to Home Screen</b>.</p><p><b>Android (Chrome):</b> tap ⋮ → <b>Add to Home screen</b> or <b>Install app</b>.</p><p class="note small" style="margin-bottom:0">Always open the planner the same way (ideally from your Home Screen icon). On iPhone, the Home Screen app and Safari keep separate records.</p></div>
+ <div class="card"><div id="installBox" class="hide" style="margin-bottom:12px"><button class="btn" data-install>📲 Install My Thrive Planner</button><p class="small muted" style="margin:.5rem 0 0">Adds the planner to your Home Screen. It opens full-screen and works offline.</p></div><p style="margin-top:0"><b>iPhone / iPad (Safari):</b> tap the Share button → <b>Add to Home Screen</b>.</p><p><b>Android (Chrome):</b> tap ⋮ → <b>Add to Home screen</b> or <b>Install app</b>.</p><p class="note small" style="margin-bottom:0">Always open the planner the same way (ideally from your Home Screen icon). On iPhone, the Home Screen app and Safari keep separate records.</p></div>
  <div class="section-title"><h2>How to use it</h2></div><div class="card"><ol style="margin:0;padding-left:1.2rem;line-height:1.7"><li>Check your start date in Settings and set your goals in My Thrive Journey.</li><li>Each week, plan your priorities and check which Thrive lesson is due.</li><li>Use Daily Check-In, Symptoms and Habits as often as feels useful.</li><li>Look at Progress and complete a Weekly Reflection.</li><li>Back up your planner every week or two in Excel & Backup.</li></ol></div>
  <div class="section-title"><h2>What's inside</h2></div><div class="list">${rows.map(([a,b])=>`<div class="list-row"><div><b>${a}</b><div class="small muted">${b}</div></div></div>`).join("")}</div>
  <p class="note small" style="margin-top:12px">This planner is an educational self-tracking tool. It does not diagnose or treat, and it is not a substitute for advice from your GP or health practitioner.</p>`;
@@ -685,6 +688,15 @@ function bind(){
  on("#jsonIn","change",x=>{importJSON(x.files&&x.files[0]);x.value=""});
  on("[data-reset]","click",()=>{if(!confirm("Erase ALL planner data on this device? This can't be undone."))return;if(!confirm("Are you sure? Tap OK to erase everything."))return;try{localStorage.removeItem(KEY)}catch(e){}S=normalize({});S.settings.onboarded=false;save();go("today")});
 }
+
+/* ---------- Web app: offline + install ---------- */
+let installEvt=null;
+function showInstall(){const b=document.getElementById("installBox");if(b)b.classList.toggle("hide",!installEvt)}
+addEventListener("beforeinstallprompt",e=>{e.preventDefault();installEvt=e;showInstall()});
+addEventListener("appinstalled",()=>{installEvt=null;showInstall();toast("Installed — find My Thrive Planner on your Home Screen")});
+document.addEventListener("click",async e=>{if(!e.target.closest("[data-install]")||!installEvt)return;installEvt.prompt();try{await installEvt.userChoice}catch(_){}installEvt=null;showInstall()});
+new MutationObserver(showInstall).observe(document.body,{childList:true,subtree:true});
+if("serviceWorker" in navigator&&isSecureContext)addEventListener("load",()=>navigator.serviceWorker.register("sw.js").catch(()=>{}));
 
 render();
 requestAnimationFrame(()=>{});
